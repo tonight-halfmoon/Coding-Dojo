@@ -2,6 +2,51 @@ final class FizzBuzz {
 
     static String fb(int n)
     {
-	return 0 == n % 3 ? "Fizz" : String.valueOf(n);
+	final Matcher [] matchers = new Matcher[] { new Fizz(), new Buzz()};
+
+	if(1 > n)
+	{
+	    return "Expected 0 < n";
+	}
+
+	for(Matcher matcher : matchers) {
+	    if (matcher.isMultipleOf(n))
+		{
+		    return matcher.answer();
+		}
+	}
+	return String.valueOf(n);
+    }
+}
+
+interface Matcher {
+
+    Boolean isMultipleOf(final int n);
+    String answer();
+}
+
+final class Fizz implements Matcher {
+
+    public Boolean isMultipleOf(final int n)
+    {
+	return 0 == n % 3;
+    }
+
+    public String answer()
+    {
+	return "Fizz";
+    }
+}
+
+final class Buzz implements Matcher {
+
+    public Boolean isMultipleOf(final int n)
+    {
+	return 0 == n % 5;
+    }
+
+    public String answer()
+    {
+	return "Buzz";
     }
 }

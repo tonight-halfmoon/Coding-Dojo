@@ -1,15 +1,15 @@
 final class FizzBuzz {
 
-    static String fb(int n)
+    static String fb(int n) throws Exception
     {
 	final Matcher [] matchers = new Matcher[] { new FizzBuzzMatcher(), new Fizz(), new Buzz()};
 
 	if(1 > n)
 	{
-	    return "Expected 0 < n";
+	    throw new Exception ("Expected 0 < n");
 	}
 
-	for(Matcher matcher : matchers) {
+	for(final Matcher matcher : matchers) {
 	    if (matcher.isMultipleOf(n))
 		{
 		    return matcher.answer();

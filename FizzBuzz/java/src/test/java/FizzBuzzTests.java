@@ -1,7 +1,6 @@
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-
 public class FizzBuzzTests {
 
     @Test
@@ -10,7 +9,7 @@ public class FizzBuzzTests {
 	assertEquals(String.valueOf(1), FizzBuzz.fb(1));
     }
 
-     @Test
+    @Test
     public void fb_when_number_multiple_of_3_then_return_Fizz()
     {
 	assertEquals("Fizz", FizzBuzz.fb(3));

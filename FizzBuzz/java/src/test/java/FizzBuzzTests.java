@@ -20,4 +20,10 @@ public class FizzBuzzTests {
     {
 	assertEquals("Buzz", FizzBuzz.fb(5));
     }
+
+    @Test
+    public void fb_when_number_multiple_of_3_and_5_then_return_FizzBuzz()
+    {
+	assertEquals("FizzBuzz", FizzBuzz.fb(15));
+    }
 }

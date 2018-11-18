@@ -2,7 +2,7 @@ final class FizzBuzz {
 
     static String fb(int n)
     {
-	final Matcher [] matchers = new Matcher[] { new Fizz(), new Buzz()};
+	final Matcher [] matchers = new Matcher[] { new FizzBuzzMatcher(), new Fizz(), new Buzz()};
 
 	if(1 > n)
 	{
@@ -48,5 +48,18 @@ final class Buzz implements Matcher {
     public String answer()
     {
 	return "Buzz";
+    }
+}
+
+final class FizzBuzzMatcher implements Matcher {
+
+    public Boolean isMultipleOf(final int n)
+    {
+	return 0 == n % 3 && 0 == n % 5;
+    }
+
+    public String answer()
+    {
+	return "FizzBuzz";
     }
 }

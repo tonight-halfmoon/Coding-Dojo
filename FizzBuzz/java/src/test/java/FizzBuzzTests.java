@@ -9,4 +9,10 @@ public class FizzBuzzTests {
     {
 	assertEquals(String.valueOf(1), FizzBuzz.fb(1));
     }
+
+     @Test
+    public void fb_when_number_multiple_of_3_then_return_Fizz()
+    {
+	assertEquals("Fizz", FizzBuzz.fb(3));
+    }
 }

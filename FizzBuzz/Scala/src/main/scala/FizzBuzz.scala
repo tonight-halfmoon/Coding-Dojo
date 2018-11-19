@@ -5,10 +5,11 @@ object FizzBuzz {
     return fb(n, isMultipleOf(n, 3), isMultipleOf(n, 5))
   }
 
-  def fb(n: Int, f: Boolean, b: Boolean) : String = (f, b) match {
-    case (true, false) => return "Fizz"
-    case (false, true) => return "Buzz"
-    case (true, true) => return "FizzBuzz"
+  def fb(n: Int, f: Boolean, b: Boolean) : String = (n, f, b) match {
+    case (n, _, _) if 1 > n => throw new Exception("Expected Number > 1")
+    case (_, true, false) => return "Fizz"
+    case (_, false, true) => return "Buzz"
+    case (_, true, true) => return "FizzBuzz"
     case _ => return n.toString()
   }
 

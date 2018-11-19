@@ -24,4 +24,12 @@ class FizzBuzzSpec extends FlatSpec {
   it should "return 'FizzBuzz'" in {
     assert("FizzBuzz" === FizzBuzz.fb(15))
   }
+
+  behavior of "Number less than 1"
+
+  it should "throw Exception" in {
+    assertThrows[Exception] {
+      FizzBuzz.fb(0)
+    }
+  }
 }

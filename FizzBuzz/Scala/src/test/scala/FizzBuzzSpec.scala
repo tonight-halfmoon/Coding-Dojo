@@ -24,4 +24,9 @@ class FizzBuzzKadaiSpec extends FlatSpec {
   it should "return 'FizzBuzz'" in {
     assert("FizzBuzz" === FizzBuzz.stringFor(15))
   }
+
+  behavior of "`stringFor` when number is divisible by 5"
+  it should "return 'Buzz'" in {
+    assert("Buzz" === FizzBuzz.stringFor(5))
+  }
 }

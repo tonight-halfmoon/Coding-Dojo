@@ -8,6 +8,7 @@ object FizzBuzz {
   def fb(n: Int, f: Boolean, b: Boolean) : String = (f, b) match {
     case (true, false) => return "Fizz"
     case (false, true) => return "Buzz"
+    case (true, true) => return "FizzBuzz"
     case _ => return n.toString()
   }
 

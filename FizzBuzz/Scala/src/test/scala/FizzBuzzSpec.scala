@@ -12,4 +12,10 @@ class FizzBuzzSpec extends FlatSpec {
   it should "return 'Fizz'" in {
     assert("Fizz" === FizzBuzz.fb(3))
   }
+
+  behavior of "Number multiple of 5"
+
+  it should "return 'Buzz'" in {
+    assert("Buzz" === FizzBuzz.fb(5))
+  }
 }

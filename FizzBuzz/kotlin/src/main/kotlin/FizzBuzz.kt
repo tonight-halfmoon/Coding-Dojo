@@ -6,7 +6,7 @@ object FizzBuzz {
 	fun stringFor(number: Int): Any
 	{
 		throwNumberLessThanOneException(number)
-		return convert(number)
+		return process(number)
 	}
 
 	fun addFilter(filter: (Int) -> String)
@@ -19,7 +19,7 @@ object FizzBuzz {
 		filters.clear()
 	}
 
-	private fun convert(number: Int): Any
+	private fun process(number: Int): Any
 	{
 		val stringForNumber = applyFilters(number)
 		return when (stringForNumber.isEmpty())

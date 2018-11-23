@@ -30,18 +30,33 @@ class FizzBuzzTest {
 	@Test
 	fun `'stringFor' when number is multiple of 3, then return 'Fizz'`()
 	{
-		assertEquals("Fizz", FizzBuzz.stringFor(3))
+		val input = 3
+		val expected = "Fizz"
+
+		val actual = FizzBuzz.stringFor(3)
+
+		assertEquals(expected, actual)
 	}
 
 	@Test
 	fun `'stringFor' when number is multiple of 5, then return 'Buzz'`()
 	{
-		assertEquals("Buzz", FizzBuzz.stringFor(5))
+		val input = 5
+		val expected = "Buzz"
+
+		val actual = FizzBuzz.stringFor(5)
+
+		assertEquals(expected, actual)
 	}
 
 	@Test
 	fun `'stringFor' when number is multiple of 3 and 5, then return 'FizzBuzz'`()
 	{
-		assertEquals("FizzBuzz", FizzBuzz.stringFor(15))
+		val input = 15
+		val expected = "FizzBuzz"
+
+		val actual =  FizzBuzz.stringFor(15)
+
+		assertEquals(expected, actual)
 	}
 }

@@ -2,17 +2,8 @@ final class FizzBuzz {
 
     static String stringFor(final int integer) throws Exception
     {
-	final Matcher [] matchers = new Matcher[] { new FizzBuzzMatcher(), new Fizz(), new Buzz()};
-
 	throwIntegerLessThanOneException(integer);
-
-	for(final Matcher matcher : matchers) {
-	    if (matcher.isMultipleOf(integer))
-		{
-		    return matcher.answer();
-		}
-	}
-	return String.valueOf(integer);
+	return process(integer);
     }
 
     private static void throwIntegerLessThanOneException(final int integer) throws Exception
@@ -21,6 +12,18 @@ final class FizzBuzz {
 	    {
 		throw new Exception ("Expected integer greater than 0, but found ".concat(String.valueOf(integer)));
 	}
+    }
+
+    private static String process(final int integer)
+    {
+	final Matcher [] matchers = new Matcher[] { new FizzBuzzMatcher(), new Fizz(), new Buzz()};
+	for(final Matcher matcher : matchers) {
+	    if (matcher.isMultipleOf(integer))
+		{
+		    return matcher.answer();
+		}
+	}
+	return String.valueOf(integer);
     }
 }
 

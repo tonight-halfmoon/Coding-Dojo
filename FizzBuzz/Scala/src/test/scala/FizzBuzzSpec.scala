@@ -17,21 +17,41 @@ class FizzBuzzKadaiSpec extends FlatSpec {
 
   behavior of "`stringFor` when number is divisible by 3"
   it should "return 'Fizz'" in {
-    assert("Fizz" === FizzBuzz.stringFor(3))
+    val input = 3
+    val expected = "Fizz"
+
+    val actual = FizzBuzz.stringFor(3)
+
+    assert(expected === actual)
   }
 
   behavior of "`stringFor` when number is divisible by 3 and 5"
   it should "return 'FizzBuzz'" in {
-    assert("FizzBuzz" === FizzBuzz.stringFor(15))
+    val input = 15
+    val expected = "FizzBuzz"
+
+    val actual = FizzBuzz.stringFor(15)
+
+    assert(expected === actual)
   }
 
   behavior of "`stringFor` when number is divisible by 5"
   it should "return 'Buzz'" in {
-    assert("Buzz" === FizzBuzz.stringFor(5))
+    val input = 5
+    val expected = "Buzz"
+
+    val actual = FizzBuzz.stringFor(5)
+
+    assert(expected === actual)
   }
 
   behavior of "`stringFor` when number is not divisible by 3 or 5"
   it should "return number" in {
-    assert(1 === FizzBuzz.stringFor(1))
+    val input = 1
+    val expected = 1
+
+    val actual = FizzBuzz.stringFor(1)
+
+    assert(expected === actual)
   }
 }

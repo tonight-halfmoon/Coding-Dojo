@@ -4,32 +4,53 @@ import static org.junit.Assert.assertEquals;
 public class FizzBuzzTests {
 
     @Test
-    public void fb_when_number_not_multiple_of_3_or_5_then_return_number() throws Exception
+    public void stringFor_whenIntegerIsNotDivisibleBy3_or5_thenReturnIntegerAsString() throws Exception
     {
-	assertEquals(String.valueOf(1), FizzBuzz.fb(1));
+	final int input = 1;
+	final String expected = "1";
+
+	final String actual = FizzBuzz.stringFor(input);
+	assertEquals(expected, actual);
     }
 
     @Test
-    public void fb_when_number_multiple_of_3_then_return_Fizz() throws Exception
+    public void stringFor_whenIntegerIsDivisibleBy3_thenReturnFizz() throws Exception
     {
-	assertEquals("Fizz", FizzBuzz.fb(3));
+	final int input = 3;
+	final String expected = "Fizz";
+
+	final String actual = FizzBuzz.stringFor(input);
+
+	assertEquals(expected, actual);
     }
 
     @Test
-    public void fb_when_number_multiple_of_5_then_return_Buzz() throws Exception
+    public void stringFor_whenInputIsDivisibleBy5_thenReturnBuzz() throws Exception
     {
-	assertEquals("Buzz", FizzBuzz.fb(5));
+	final int input = 5;
+	final String expected = "Buzz";
+
+	final String actual = FizzBuzz.stringFor(input);
+
+	assertEquals(expected, actual);
     }
 
     @Test
-    public void fb_when_number_multiple_of_3_and_5_then_return_FizzBuzz() throws Exception
+    public void stringFor_whenInputIsDivisibleBy3_and5_thenReturnFizzBuzz() throws Exception
     {
-	assertEquals("FizzBuzz", FizzBuzz.fb(15));
+	final int input = 15;
+	final String expected = "FizzBuzz";
+
+	final String actual = FizzBuzz.stringFor(input);
+
+	assertEquals(expected, actual);
     }
 
     @Test(expected = Exception.class)
     public void fb_when_number_less_than_1_then_throw_exception() throws Exception
     {
-	FizzBuzz.fb(0);
+	final int input = 0;
+
+	FizzBuzz.stringFor(input);
     }
 }

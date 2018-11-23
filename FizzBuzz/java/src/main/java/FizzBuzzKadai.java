@@ -1,6 +1,6 @@
 final class FizzBuzz {
 
-    static String fb(int n) throws Exception
+    static String stringFor(int n) throws Exception
     {
 	final Matcher [] matchers = new Matcher[] { new FizzBuzzMatcher(), new Fizz(), new Buzz()};
 

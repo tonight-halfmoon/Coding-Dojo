@@ -35,14 +35,15 @@ object FizzBuzz {
 	}
 
 	private tailrec fun applyFilters(number: Int, filters: MutableList<(Int) -> String>, stringForNumber: String): String
-	= if (filters.isEmpty()) {
-		stringForNumber
-	}
-	else
 	{
-		val nextFilter = filters.first()
-		filters.remove(nextFilter)
-		applyFilters(number, filters, stringForNumber.plus(nextFilter(number)))
+		return when (filters.isEmpty()) {
+			true -> stringForNumber
+			else -> {
+				val nextFilter = filters.first()
+				filters.remove(nextFilter)
+				applyFilters(number, filters, stringForNumber.plus(nextFilter(number)))
+			}
+		}
 	}
 
 	private fun throwNumberLessThanOneException(number: Int)

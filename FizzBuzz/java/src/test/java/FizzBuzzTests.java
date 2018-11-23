@@ -1,10 +1,22 @@
 import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
 import static org.junit.Assert.assertEquals;
 
 public class FizzBuzzTests {
 
     private final FizzBuzz fizzBuzz = FizzBuzz.getInstance();
 
+    @Before
+    public void initialize() {
+	fizzBuzz.addMatcher(new Fizz());
+	fizzBuzz.addMatcher(new Buzz());
+    }
+    
+    @After
+    public void cleanUp() {
+	fizzBuzz.removeAllMatchers();
+    }
     @Test
     public void stringFor_whenIntegerIsNotDivisibleBy3_or5_thenReturnIntegerAsString() throws Exception
     {

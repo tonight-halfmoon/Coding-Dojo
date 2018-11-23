@@ -19,6 +19,16 @@ final class FizzBuzz {
 	return process(integer);
     }
 
+    void addMatcher(final Matcher matcher)
+    {
+	matcherList.add(matcher);
+    }
+
+    void removeAllMatchers()
+    {
+	matcherList.clear();
+    }
+    
     private void throwIntegerLessThanOneException(final int integer) throws Exception
     {
 	if(1 > integer)
@@ -29,8 +39,6 @@ final class FizzBuzz {
 
     private String process(final int integer)
     {
-	matcherList.add(new Fizz());
-	matcherList.add(new Buzz());
 	final String stringForInteger = applyMatchers(integer, matcherList, "");
 	if (stringForInteger.isEmpty())
 	    {
@@ -52,20 +60,4 @@ final class FizzBuzz {
 
 interface Matcher {
     String match(final int integer);
-}
-
-final class Fizz implements Matcher {
-
-    public String match(final int integer)
-    {
-	return 0 == integer % 3? "Fizz": "";
-    }
-}
-
-final class Buzz implements Matcher {
-
-    public String match(final int integer)
-    {
-	return 0 == integer % 5? "Buzz": "";
-    }
 }

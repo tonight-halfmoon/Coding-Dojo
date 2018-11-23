@@ -5,6 +5,10 @@
 build/
 target/
 project/
+
+# Erlang build
+*.beam
+ebin/
 # Compiled class file
 *.class
 

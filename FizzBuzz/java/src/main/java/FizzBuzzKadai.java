@@ -1,73 +1,71 @@
+import java.util.List;
+import java.util.ArrayList;
+
 final class FizzBuzz {
 
-    static String stringFor(final int integer) throws Exception
+    private final List<Matcher> matcherList = new ArrayList<Matcher>();
+
+    private static FizzBuzz fizzBuzz = new FizzBuzz();
+
+    private FizzBuzz() {}
+
+    static FizzBuzz getInstance(){
+	return fizzBuzz;
+    }
+
+    String stringFor(final int integer) throws Exception
     {
 	throwIntegerLessThanOneException(integer);
 	return process(integer);
     }
 
-    private static void throwIntegerLessThanOneException(final int integer) throws Exception
+    private void throwIntegerLessThanOneException(final int integer) throws Exception
     {
 	if(1 > integer)
 	    {
-		throw new Exception ("Expected integer greater than 0, but found ".concat(String.valueOf(integer)));
-	}
+		throw new Exception ("Expected integer to be greater than 0, but found ".concat(String.valueOf(integer)));
+	    }
     }
 
-    private static String process(final int integer)
+    private String process(final int integer)
     {
-	final Matcher [] matchers = new Matcher[] { new FizzBuzzMatcher(), new Fizz(), new Buzz()};
-	for(final Matcher matcher : matchers) {
-	    if (matcher.isMultipleOf(integer))
-		{
-		    return matcher.answer();
-		}
-	}
-	return String.valueOf(integer);
+	matcherList.add(new Fizz());
+	matcherList.add(new Buzz());
+	final String stringForInteger = applyMatchers(integer, matcherList, "");
+	if (stringForInteger.isEmpty())
+	    {
+		return String.valueOf(integer);
+	    }
+	return stringForInteger;
+    }
+
+    private String applyMatchers(final int integer, final List<Matcher> matchers, String stringForInteger)
+    {
+	if(matchers.size() == 0)
+	    {
+		return stringForInteger;
+	    }
+	final Matcher nextMatcher = matchers.remove(0);
+	return applyMatchers(integer, matchers, stringForInteger.concat(nextMatcher.match(integer)));
     }
 }
 
 interface Matcher {
-
-    Boolean isMultipleOf(final int n);
-    String answer();
+    String match(final int integer);
 }
 
 final class Fizz implements Matcher {
 
-    public Boolean isMultipleOf(final int n)
+    public String match(final int integer)
     {
-	return 0 == n % 3;
-    }
-
-    public String answer()
-    {
-	return "Fizz";
+	return 0 == integer % 3? "Fizz": "";
     }
 }
 
 final class Buzz implements Matcher {
 
-    public Boolean isMultipleOf(final int n)
+    public String match(final int integer)
     {
-	return 0 == n % 5;
-    }
-
-    public String answer()
-    {
-	return "Buzz";
-    }
-}
-
-final class FizzBuzzMatcher implements Matcher {
-
-    public Boolean isMultipleOf(final int n)
-    {
-	return 0 == n % 3 && 0 == n % 5;
-    }
-
-    public String answer()
-    {
-	return "FizzBuzz";
+	return 0 == integer % 5? "Buzz": "";
     }
 }

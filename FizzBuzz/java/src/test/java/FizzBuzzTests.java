@@ -3,13 +3,15 @@ import static org.junit.Assert.assertEquals;
 
 public class FizzBuzzTests {
 
+    private final FizzBuzz fizzBuzz = FizzBuzz.getInstance();
+
     @Test
     public void stringFor_whenIntegerIsNotDivisibleBy3_or5_thenReturnIntegerAsString() throws Exception
     {
 	final int input = 1;
 	final String expected = "1";
 
-	final String actual = FizzBuzz.stringFor(input);
+	final String actual = fizzBuzz.stringFor(input);
 	assertEquals(expected, actual);
     }
 
@@ -19,7 +21,7 @@ public class FizzBuzzTests {
 	final int input = 3;
 	final String expected = "Fizz";
 
-	final String actual = FizzBuzz.stringFor(input);
+	final String actual = fizzBuzz.stringFor(input);
 
 	assertEquals(expected, actual);
     }
@@ -30,7 +32,7 @@ public class FizzBuzzTests {
 	final int input = 5;
 	final String expected = "Buzz";
 
-	final String actual = FizzBuzz.stringFor(input);
+	final String actual = fizzBuzz.stringFor(input);
 
 	assertEquals(expected, actual);
     }
@@ -41,7 +43,7 @@ public class FizzBuzzTests {
 	final int input = 15;
 	final String expected = "FizzBuzz";
 
-	final String actual = FizzBuzz.stringFor(input);
+	final String actual = fizzBuzz.stringFor(input);
 
 	assertEquals(expected, actual);
     }
@@ -51,6 +53,6 @@ public class FizzBuzzTests {
     {
 	final int input = 0;
 
-	FizzBuzz.stringFor(input);
+	fizzBuzz.stringFor(input);
     }
 }

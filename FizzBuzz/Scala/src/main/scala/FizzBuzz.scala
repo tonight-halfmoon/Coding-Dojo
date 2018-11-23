@@ -5,7 +5,7 @@ object FizzBuzz {
   def stringFor(number: Int): Any =
   {
     throwNumberLessThanOneException(number)
-    return convert(number)
+    return process(number)
   }
 
   def addFilter(filter: (Int) => String) =
@@ -21,7 +21,7 @@ object FizzBuzz {
         ;
     }
 
-  private def convert(number : Int): Any =
+  private def process(number : Int): Any =
   {
     val stringForNumber = applyFilters(number)
     stringForNumber.isEmpty() match

@@ -38,4 +38,10 @@ class FizzBuzzTest {
 	{
 		assertEquals("Buzz", FizzBuzz.stringFor(5))
 	}
+
+	@Test
+	fun `'stringFor' when number is multiple of 3 and 5, then return 'FizzBuzz'`()
+	{
+		assertEquals("FizzBuzz", FizzBuzz.stringFor(15))
+	}
 }

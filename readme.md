@@ -3,4 +3,4 @@
 ## TDD
 ## SOLID design principles
 
-Berak it, fix it, commit, refactor if necessary, and so on. 
+Break it, fix it, commit, refactor if necessary, and so on. 

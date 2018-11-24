@@ -2,9 +2,10 @@
 
 -include_lib("eunit/include/eunit.hrl").
 
-stringFor_ReturnEmptyString_test() ->
-    Expected = "",
-    
-    Actual = 'FizzBuzz':stringFor(),
-    
+stringFor_whenInputIsProvided_thenReturnInputAsString_test() ->
+    Input = 1,
+    Expected = "1",
+
+    Actual = 'FizzBuzz':stringFor(Input),
+
     ?assertEqual(Expected, Actual).

@@ -1,6 +1,6 @@
 -module('FizzBuzz').
 
--export([stringFor/0]).
+-export([stringFor/1]).
 
-stringFor() ->
-    "".
+stringFor(Input) ->
+    integer_to_list(Input).

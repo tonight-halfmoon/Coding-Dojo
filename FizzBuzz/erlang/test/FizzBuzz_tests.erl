@@ -2,8 +2,8 @@
 
 -include_lib("eunit/include/eunit.hrl").
 
-stringFor_whenInputIsProvided_thenReturnInputAsString_test() ->
-    Input = 1,
+stringFor_whenInputIsNotDivisibleBy3_or5_thenReturnInputAsString_test() ->
+    Input = 1, 
     Expected = "1",
 
     Actual = 'FizzBuzz':stringFor(Input),

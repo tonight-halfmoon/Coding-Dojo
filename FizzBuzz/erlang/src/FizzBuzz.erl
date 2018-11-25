@@ -17,7 +17,11 @@ process(Input) ->
 applyFilters(Input) ->
     fizzFilter(Input).
 
+fizzFilter(Input) when Input rem 3 == 0 andalso Input rem 5 == 0 ->
+    "FizzBuzz";
 fizzFilter(Input) when Input rem 3 == 0 ->
     "Fizz";
+fizzFilter(Input) when Input rem 5 == 0 ->
+    "Buzz";
 fizzFilter(_Input) ->
     "".

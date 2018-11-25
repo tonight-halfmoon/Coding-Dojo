@@ -22,3 +22,19 @@ stringFor_whenInputIsDivisibleBy3_thenReturnFizz_test() ->
     Actual = 'FizzBuzz':stringFor(Input),
 
     ?assertEqual(Expected, Actual).
+
+stringFor_whenInputIsDivisibleBy5_thenReturnBuzz_test() ->
+    Input = 5,
+    Expected = "Buzz",
+
+    Actual = 'FizzBuzz':stringFor(Input),
+
+    ?assertEqual(Expected, Actual).
+
+stringFor_whenInputIsDivisibleBy3_and5_thenReturnFizzBuzz_test() ->
+    Input = 15,
+    Expected = "FizzBuzz",
+
+    Actual = 'FizzBuzz':stringFor(Input),
+
+    ?assertEqual(Expected, Actual).

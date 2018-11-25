@@ -38,3 +38,12 @@ stringFor_whenInputIsDivisibleBy3_and5_thenReturnFizzBuzz_test() ->
     Actual = 'FizzBuzz':stringFor(Input),
 
     ?assertEqual(Expected, Actual).
+
+addFilter_alwaysIncreaseNumberOfFiltersBy1_test() ->
+    Filter= fun() -> ok end,
+    Expected = 1,
+
+    Actual = 'FizzBuzz':addFilter(Filter),
+
+    ?assertEqual(Expected, Actual).
+

@@ -2,8 +2,13 @@
 
 -export([stringFor/1]).
 
+-export([addFilter/1]).
+
 stringFor(Input) when Input > 0 ->
     process(Input).
+
+addFilter(Filter) ->
+    'FiltersProvider':addFilter(Filter).
 
 process(Input) ->
     StringForInput = applyFilters(Input),

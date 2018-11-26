@@ -1,27 +1,55 @@
 -module('FiltersProvider').
 
--export([addFilter/1]).
+-export([addFilter/1, filters/0, removeFilters/0]).
 
 -export([init/0]).
+
 -define(req_add_filter, add_filter).
+-define(req_filters, filters).
 
 addFilter(Filter) ->
     case isRunning() of
 	true ->
-	    request(?req_add_filter, Filter);
+	    request({?req_add_filter, Filter});
 	false ->
 	    start(),
-	    request(?req_add_filter, Filter)
+	    request({?req_add_filter, Filter})
     end.
 
-request(add_filter, Filter) ->
+filters() ->
+	case isRunning() of
+		true ->
+			request(?req_filters);
+		false ->
+			{error, service_not_running}
+	end.
+
+removeFilters() ->
+	case isRunning() of
+		true ->
+			request(stop);
+		false ->
+			{error, service_not_running}
+	end.
+
+request({add_filter, Filter}) ->
     ?MODULE ! {add_filter, self(), Filter},
     receive
 	Reply ->
 	    Reply
     after 300 ->
 	    exit(timeout)
-    end.
+    end;
+request(stop) ->
+	?MODULE ! stop;
+request(Request) ->
+	?MODULE ! {Request, self()},
+	receive
+	Reply ->
+		Reply
+	after 300 ->
+		exit(timeout)
+	end.
 
 start() ->
     register(?MODULE, spawn(?MODULE, init, [])).
@@ -36,7 +64,10 @@ loop(Filters) ->
 	From ! length(NewFilters),
 	    loop(NewFilters);
 	stop ->
-	    exit(normal)
+	    exit(normal);
+	{filters, From} ->
+		From ! Filters,
+		loop(Filters)
 	end.
 
 isRunning() ->

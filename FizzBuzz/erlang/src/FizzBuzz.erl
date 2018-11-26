@@ -2,13 +2,16 @@
 
 -export([stringFor/1]).
 
--export([addFilter/1]).
+-export([addFilter/1, removeAllFilters/0]).
 
 stringFor(Input) when Input > 0 ->
     process(Input).
 
 addFilter(Filter) ->
     'FiltersProvider':addFilter(Filter).
+
+removeAllFilters() ->
+    'FiltersProvider':removeFilters().
 
 process(Input) ->
     StringForInput = applyFilters(Input),
@@ -20,13 +23,10 @@ process(Input) ->
     end.
 
 applyFilters(Input) ->
-    fizzFilter(Input).
+	applyFilters(Input, 'FiltersProvider':filters(), "").
 
-fizzFilter(Input) when Input rem 3 == 0 andalso Input rem 5 == 0 ->
-    "FizzBuzz";
-fizzFilter(Input) when Input rem 3 == 0 ->
-    "Fizz";
-fizzFilter(Input) when Input rem 5 == 0 ->
-    "Buzz";
-fizzFilter(_Input) ->
-    "".
+applyFilters(_Input, [], StringForInput) ->
+	StringForInput;
+applyFilters(Input, [Filter|Filters], StringForInput) ->
+	applyFilters(Input, Filters, lists:concat([Filter(Input), StringForInput])).
+

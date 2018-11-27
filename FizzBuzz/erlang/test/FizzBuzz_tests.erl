@@ -3,21 +3,21 @@
 -include_lib("eunit/include/eunit.hrl").
 
 before() ->
-	Fizz = fun(Input) when Input rem 3 == 0 -> "Fizz"; (_) -> "" end,
-	Buzz = fun(Input) when Input rem 5 == 0 -> "Buzz"; (_) -> "" end,
-	'FizzBuzz':addFilter(Fizz),
-	'FizzBuzz':addFilter(Buzz).
+    Fizz = fun(Input) when Input rem 3 == 0 -> "Fizz"; (_) -> "" end,
+    Buzz = fun(Input) when Input rem 5 == 0 -> "Buzz"; (_) -> "" end,
+    'FizzBuzz':addFilter(Fizz),
+    'FizzBuzz':addFilter(Buzz).
 
 afterEach() ->
-	'FizzBuzz':removeAllFilters().
+    'FizzBuzz':removeAllFilters().
 
 stringFor_whenInputIsNotDivisibleBy3_or5_thenReturnInputAsString_test() ->
     Input = 1, 
     Expected = "1",
-	before(),
+    before(),
 
     Actual = 'FizzBuzz':stringFor(Input),
-	afterEach(),
+    afterEach(),
 
     ?assertEqual(Expected, Actual).
 
@@ -29,50 +29,49 @@ stringFor_whenInputIsLessThanOne_thenThrowException_test() ->
 stringFor_whenInputIsDivisibleBy3_thenReturnFizz_test() ->
     Input = 3,
     Expected = "Fizz",
-	before(),
+    before(),
 
     Actual = 'FizzBuzz':stringFor(Input),
-	afterEach(),
+    afterEach(),
 
     ?assertEqual(Expected, Actual).
 
 stringFor_whenInputIsDivisibleBy5_thenReturnBuzz_test() ->
     Input = 5,
     Expected = "Buzz",
-	before(),
+    before(),
 
     Actual = 'FizzBuzz':stringFor(Input),
-	afterEach(),
+    afterEach(),
 
     ?assertEqual(Expected, Actual).
 
 stringFor_whenInputIsDivisibleBy3_and5_thenReturnFizzBuzz_test() ->
     Input = 15,
     Expected = "FizzBuzz",
-	before(),
+    before(),
 
     Actual = 'FizzBuzz':stringFor(Input),
-	afterEach(),
+    afterEach(),
 
     ?assertEqual(Expected, Actual).
 
 addFilter_alwaysIncreaseNumberOfFiltersBy1_test() ->
     Filter= fun() -> ok end,
     Expected = 3,
-	before(),
+    before(),
 
     Actual = 'FizzBuzz':addFilter(Filter),
-	afterEach(),
+    afterEach(),
 
     ?assertEqual(Expected, Actual).
 
 removeAllFilters_alwaysClearFiltersProviderState_test() ->
-	Filter = fun() -> ok end,
-	Expected = stop,
-	'FizzBuzz':addFilter(Filter),
+    Filter = fun() -> ok end,
+    Expected = stop,
+    'FizzBuzz':addFilter(Filter),
 
-	Actual = 'FizzBuzz':removeAllFilters(),
-	afterEach(),
+    Actual = 'FizzBuzz':removeAllFilters(),
+    afterEach(),
 
-	?assertEqual(Expected, Actual).
-
+    ?assertEqual(Expected, Actual).

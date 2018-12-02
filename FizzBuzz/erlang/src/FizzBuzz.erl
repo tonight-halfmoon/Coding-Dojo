@@ -4,6 +4,8 @@
 
 -export([addFilter/1, removeAllFilters/0]).
 
+stringFor(Input) when is_list(Input) ->
+    process(Input, "");
 stringFor(Input) when Input > 0 ->
     process(Input).
 
@@ -12,6 +14,11 @@ addFilter(Filter) ->
 
 removeAllFilters() ->
     'FiltersProvider':removeFilters().
+
+process([], StringFor) ->
+    lists:reverse(StringFor);
+process([H|T], StringFor) ->
+    process(T, [process(H)|StringFor]).
 
 process(Input) ->
     StringForInput = applyFilters(Input),

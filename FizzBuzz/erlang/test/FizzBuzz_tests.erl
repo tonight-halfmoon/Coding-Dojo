@@ -75,3 +75,13 @@ removeAllFilters_alwaysClearFiltersProviderState_test() ->
     afterEach(),
 
     ?assertEqual(Expected, Actual).
+
+stringFor_whenListOfIntergerProvided_thenReturnAStringOfAllStringFor_test() ->
+    before(),
+    Input = [1,2,3,5,7,15],
+    Expected = ["1", "2", "Fizz", "Buzz" ,"7", "FizzBuzz"],
+
+    Actual = 'FizzBuzz':stringFor(Input),
+    afterEach(),
+
+    ?assertEqual(Expected, Actual).

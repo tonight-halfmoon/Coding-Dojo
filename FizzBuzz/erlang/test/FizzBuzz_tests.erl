@@ -2,7 +2,7 @@
 
 -include_lib("eunit/include/eunit.hrl").
 
-before() ->
+beforeEach() ->
     Fizz = fun(Input) when Input rem 3 == 0 -> "Fizz"; (_) -> "" end,
     Buzz = fun(Input) when Input rem 5 == 0 -> "Buzz"; (_) -> "" end,
     'FizzBuzz':addFilter(Fizz),
@@ -14,7 +14,7 @@ afterEach() ->
 stringFor_whenInputIsNotDivisibleBy3_or5_thenReturnInputAsString_test() ->
     Input = 1, 
     Expected = "1",
-    before(),
+    beforeEach(),
 
     Actual = 'FizzBuzz':stringFor(Input),
     afterEach(),
@@ -29,7 +29,7 @@ stringFor_whenInputIsLessThanOne_thenThrowException_test() ->
 stringFor_whenInputIsDivisibleBy3_thenReturnFizz_test() ->
     Input = 3,
     Expected = "Fizz",
-    before(),
+    beforeEach(),
 
     Actual = 'FizzBuzz':stringFor(Input),
     afterEach(),
@@ -39,7 +39,7 @@ stringFor_whenInputIsDivisibleBy3_thenReturnFizz_test() ->
 stringFor_whenInputIsDivisibleBy5_thenReturnBuzz_test() ->
     Input = 5,
     Expected = "Buzz",
-    before(),
+    beforeEach(),
 
     Actual = 'FizzBuzz':stringFor(Input),
     afterEach(),
@@ -49,35 +49,15 @@ stringFor_whenInputIsDivisibleBy5_thenReturnBuzz_test() ->
 stringFor_whenInputIsDivisibleBy3_and5_thenReturnFizzBuzz_test() ->
     Input = 15,
     Expected = "FizzBuzz",
-    before(),
+    beforeEach(),
 
     Actual = 'FizzBuzz':stringFor(Input),
     afterEach(),
 
     ?assertEqual(Expected, Actual).
 
-addFilter_alwaysIncreaseNumberOfFiltersBy1_test() ->
-    Filter= fun() -> ok end,
-    Expected = 3,
-    before(),
-
-    Actual = 'FizzBuzz':addFilter(Filter),
-    afterEach(),
-
-    ?assertEqual(Expected, Actual).
-
-removeAllFilters_alwaysClearFiltersProviderState_test() ->
-    Filter = fun() -> ok end,
-    Expected = stop,
-    'FizzBuzz':addFilter(Filter),
-
-    Actual = 'FizzBuzz':removeAllFilters(),
-    afterEach(),
-
-    ?assertEqual(Expected, Actual).
-
 stringFor_whenListOfIntergerProvided_thenReturnAStringOfAllStringFor_test() ->
-    before(),
+    beforeEach(),
     Input = [1,2,3,5,7,15],
     Expected = ["1", "2", "Fizz", "Buzz" ,"7", "FizzBuzz"],
 

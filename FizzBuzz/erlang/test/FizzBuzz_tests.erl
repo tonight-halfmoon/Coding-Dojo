@@ -50,9 +50,8 @@ stringFor_whenInputIsDivisibleBy3_and5_thenReturnFizzBuzz_test() ->
     ?assertEqual(Expected, Actual).
 
 beforeEach() ->
-    Fizz = fun(Input) when Input rem 3 == 0 -> "Fizz"; (_) -> "" end,
     Buzz = fun(Input) when Input rem 5 == 0 -> "Buzz"; (_) -> "" end,
-    'FizzBuzz':addFilter(Fizz),
+    'FizzBuzz':addFilter('Fizz':fizz()),
     'FizzBuzz':addFilter(Buzz).
 
 afterEach() ->

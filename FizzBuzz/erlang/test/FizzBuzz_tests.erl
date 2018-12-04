@@ -78,3 +78,13 @@ stringFor_givenListOfIntegerAndPrinterWhiteSpace_thenReturnResultWhiteSpaceSepar
     afterEach(),
 
     ?assertEqual(Expected, Actual).
+
+stringFor_whenInputIsDivisibleBy2_thenReturnFoo_test() ->
+    Input = 2,
+    Expected = "Foo",
+    'FizzBuzz':addFilter('Foo':foo()),
+
+    Actual = 'FizzBuzz':stringFor(Input),
+    afterEach(),
+
+    ?assertEqual(Expected, Actual).

@@ -88,3 +88,16 @@ stringFor_whenInputIsDivisibleBy2_thenReturnFoo_test() ->
     afterEach(),
 
     ?assertEqual(Expected, Actual).
+
+stringFor_givenListOfIntegersAndCommaSeparatedPrinterAndFiltersFizz_Buzz_and_Foo_thenReturnResultWithCommaSeparated_test() ->
+    Input = [1,2,3,4,5,7,15],
+    Expected = "1, Foo, Fizz, Foo, Buzz, 7, FizzBuzz",
+    'FizzBuzz':addPrinter('PrinterCommaSeparated':print()),
+    'FizzBuzz':addFilter('Fizz':fizz()),
+    'FizzBuzz':addFilter('Buzz':buzz()),
+    'FizzBuzz':addFilter('Foo':foo()),
+
+    Actual = 'FizzBuzz':stringFor(Input),
+    afterEach(),
+
+    ?assertEqual(Expected, Actual).

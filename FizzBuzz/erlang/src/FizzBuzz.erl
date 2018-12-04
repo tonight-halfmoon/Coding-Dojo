@@ -28,10 +28,11 @@ filter(Input) ->
     end.
 
 applyFilters(Input) ->
-	applyFilters(Input, 'FiltersProvider':filters(), "").
+    Filters =  'FiltersProvider':filters(),
+    applyFilters(Input, Filters, "").
 
 applyFilters(_Input, [], StringForInput) ->
 	StringForInput;
-applyFilters(Input, [Filter|Filters], StringForInput) ->
-	applyFilters(Input, Filters, lists:concat([Filter(Input), StringForInput])).
+applyFilters(Input, [NextFilter|Filters], StringForInput) ->
+	applyFilters(Input, Filters, lists:concat([NextFilter(Input), StringForInput])).
 

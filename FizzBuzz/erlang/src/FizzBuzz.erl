@@ -20,10 +20,10 @@ process(Input) when is_integer(Input) andalso Input > 0 ->
 
 filter(Input) ->
     StringForInput = applyFilters(Input),
-    case length(StringForInput) == 0 of
-	true ->
+    case length(StringForInput) of
+	0 ->
 	    integer_to_list(Input);
-	false ->
+	_ ->
 	    StringForInput
     end.
 

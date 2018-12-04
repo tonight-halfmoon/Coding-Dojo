@@ -56,7 +56,7 @@ beforeEach() ->
 afterEach() ->
     'FizzBuzz':removeAllFilters().
 
-stringFor_whenListOfIntergerProvided_thenReturnAStringOfAllStringFor_test() ->
+stringFor_givenListOfInterger_thenReturnAStringAndCommaSeparatedOfAllStringFor_test() ->
     beforeEach(),
     Input = [1,2,3,5,7,15],
     Expected = ["1", "2", "Fizz", "Buzz" ,"7", "FizzBuzz"],

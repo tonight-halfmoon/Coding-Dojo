@@ -57,7 +57,7 @@ afterEach() ->
     'FizzBuzz':removeAllFilters(),
     'FizzBuzz':removeAllPrinters().
 
-stringFor_givenListOfIntergerAndPrinterCommaSeparated_thenReturnAsStringAndCommaSeparatedResult_test() ->
+stringFor_givenListOfIntergerAndPrinterCommaSeparated_thenReturnResultCommaSeparated_test() ->
     beforeEach(),
     Input = [1,2,3,5,7,15],
     'FizzBuzz':addPrinter('PrinterCommaSeparated':print()),
@@ -68,7 +68,7 @@ stringFor_givenListOfIntergerAndPrinterCommaSeparated_thenReturnAsStringAndComma
 
     ?assertEqual(Expected, Actual).
 
-stringFor_givenListOfIntegerAndPrinterWhiteSpace_thenReturnAsStringWithWhiteSpaceSeparatedResult_test() ->
+stringFor_givenListOfIntegerAndPrinterWhiteSpace_thenReturnResultWhiteSpaceSeparated_test() ->
     beforeEach(),
     Input = [1,2,3,4,5,7,15],
     Expected = "1 2 Fizz 4 Buzz 7 FizzBuzz",

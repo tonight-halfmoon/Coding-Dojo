@@ -4,6 +4,8 @@
 
 -export([addFilter/1, removeAllFilters/0]).
 
+-export([addPrinter/1]).
+
 stringFor(Input) ->
     Result = process(Input),
     print(Result).
@@ -13,6 +15,9 @@ addFilter(Filter) ->
 
 removeAllFilters() ->
     'FiltersProvider':removeFilters().
+
+addPrinter(Printer) ->
+    'PrintersProvider':addPrinter(Printer).
 
 process(Input) when is_list(Input) ->
     lists:map(fun filter/1, Input);

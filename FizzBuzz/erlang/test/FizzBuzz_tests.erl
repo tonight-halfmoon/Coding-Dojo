@@ -76,3 +76,11 @@ stringFor_givenListOfInterger_thenReturnAsStringAndCommaSeparatedOfAllStringFor_
 %%     afterEach(),
 
 %%     ?assertEqual(Expected, Actual).
+
+addPrinter_whenPrinterIsAddedAlwaysIncreaseNumberOfPrintersAvailable_test() ->
+    Input = fun() -> ok end,
+    Expected = 1,
+
+    Actual = 'FizzBuzz':addPrinter(Input),
+
+    ?assertEqual(Expected, Actual).

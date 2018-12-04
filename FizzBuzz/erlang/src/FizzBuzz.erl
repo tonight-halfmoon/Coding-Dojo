@@ -4,9 +4,7 @@
 
 -export([addFilter/1, removeAllFilters/0]).
 
-stringFor(Input) when is_list(Input) ->
-    process(Input, "");
-stringFor(Input) when Input > 0 ->
+stringFor(Input) ->
     process(Input).
 
 addFilter(Filter) ->
@@ -15,12 +13,12 @@ addFilter(Filter) ->
 removeAllFilters() ->
     'FiltersProvider':removeFilters().
 
-process([], StringFor) ->
-    lists:reverse(StringFor);
-process([H|T], StringFor) ->
-    process(T, [process(H)|StringFor]).
+process(Input) when is_list(Input) ->
+    lists:map(fun filter/1, Input);
+process(Input) when is_integer(Input) andalso Input > 0 ->
+    filter(Input).
 
-process(Input) ->
+filter(Input) ->
     StringForInput = applyFilters(Input),
     case length(StringForInput) == 0 of
 	true ->

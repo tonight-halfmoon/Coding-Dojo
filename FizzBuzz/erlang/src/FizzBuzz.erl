@@ -5,7 +5,8 @@
 -export([addFilter/1, removeAllFilters/0]).
 
 stringFor(Input) ->
-    process(Input).
+    Result = process(Input),
+    print(Result).
 
 addFilter(Filter) ->
     'FiltersProvider':addFilter(Filter).
@@ -36,3 +37,5 @@ applyFilters(_Input, [], StringForInput) ->
 applyFilters(Input, [NextFilter|Filters], StringForInput) ->
 	applyFilters(Input, Filters, lists:concat([NextFilter(Input), StringForInput])).
 
+print(Result) ->
+    Result.

@@ -56,7 +56,7 @@ beforeEach() ->
 afterEach() ->
     'FizzBuzz':removeAllFilters().
 
-stringFor_givenListOfInterger_thenReturnAStringAndCommaSeparatedOfAllStringFor_test() ->
+stringFor_givenListOfInterger_thenReturnAsStringAndCommaSeparatedOfAllStringFor_test() ->
     beforeEach(),
     Input = [1,2,3,5,7,15],
     Expected = ["1", "2", "Fizz", "Buzz" ,"7", "FizzBuzz"],
@@ -65,3 +65,14 @@ stringFor_givenListOfInterger_thenReturnAStringAndCommaSeparatedOfAllStringFor_t
     afterEach(),
 
     ?assertEqual(Expected, Actual).
+
+%% stringFor_givenListOfInteger_thenReturnAsStringWithWhiteSpaceSeparatedOfAllStringFor_test() ->
+%%     beforeEach(),
+%%     Input = [1,2,3,5,7,15],
+%%     Expected = "1 2 Fizz 4 Buzz 7 FizzBuzz",
+%%     beforeEach(),
+
+%%     Actual = 'FizzBuzz':stringFor(Input),
+%%     afterEach(),
+
+%%     ?assertEqual(Expected, Actual).

@@ -14,7 +14,7 @@ addFilter(Filter) ->
     'FiltersProvider':addFilter(Filter).
 
 removeAllFilters() ->
-    'FiltersProvider':removeFilters().
+    'FiltersProvider':removeAllFilters().
 
 addPrinter(Printer) ->
     'PrintersProvider':addPrinter(Printer).

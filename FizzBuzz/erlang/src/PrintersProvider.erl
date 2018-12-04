@@ -1,59 +1,15 @@
 -module('PrintersProvider').
 
--export([addPrinter/1]).
-
--export([init/0]).
-
--define(req_add_printer, add_printer).
+-export([addPrinter/1, printers/0, print/1, removeAll/0]).
 
 addPrinter(Printer) ->
-    case isRunning() of
-	true ->
-	    request({?req_add_printer, Printer});
-	false ->
-	    start(),
-	    request({?req_add_printer, Printer})
-    end.
+    'ServiceProvider':add(Printer, ?MODULE).
 
-request({add_printer, Printer}) ->
-    ?MODULE ! {add_printer, self(), Printer},
-    receive
-	Reply ->
-	    Reply
-    after 300 ->
-	    exit(timeout)
-    end;
-request(stop) ->
-    ?MODULE ! stop;
-request(Request) ->
-    ?MODULE ! {Request, self()},
-    receive
-	Reply ->
-	    Reply
-    after 300 ->
-	    exit(timeout)
-    end.
+printers() ->
+    'ServiceProvider':services(?MODULE).
 
-start() ->
-    register(?MODULE, spawn(?MODULE, init, [])).
+print(Input) ->
+    Input.
 
-init() ->
-    loop([]).
-
-loop(Printers) ->
-    receive
-	{add_printer, From, Printer} ->
-	    NewPrinters = [Printer|Printers],    
-	    From ! length(NewPrinters),
-	    loop(NewPrinters);
-	stop ->
-	    exit(normal)
-    end.
-
-isRunning() ->
-    case whereis(?MODULE) of
-	undefined ->
-	    false;
-	_Pid ->
-	    true
-    end.
+removeAll() ->
+    'ServiceProvider':removeAll(?MODULE).

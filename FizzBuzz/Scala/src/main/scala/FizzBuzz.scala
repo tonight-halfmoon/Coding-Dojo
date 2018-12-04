@@ -13,6 +13,11 @@ object FizzBuzz {
     filters = filter::filters
   }
 
+  def removeAllFilters()
+  {
+    filters = Nil
+  }
+
   private def throwNumberLessThanOneException(number: Int) =
     (1 > number) match {
       case true =>

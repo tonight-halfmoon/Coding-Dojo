@@ -47,15 +47,15 @@ object FizzBuzz {
     }
   }
 
-  private def filter(number : Int): String =
+  private def filter(number: Int): String =
   {
     val stringForNumber = applyFilters(number)
     stringForNumber.isEmpty() match
     {
       case true =>
-        return number.toString
+        number.toString
       case _ =>
-        return stringForNumber
+        stringForNumber
     }
   }
 
@@ -69,7 +69,7 @@ object FizzBuzz {
     filters match
     {
       case Nil =>
-        return stringForNumber
+        stringForNumber
       case _ =>
         applyFilters(number, filters.tail, stringForNumber.concat(filters.head(number)))
     }

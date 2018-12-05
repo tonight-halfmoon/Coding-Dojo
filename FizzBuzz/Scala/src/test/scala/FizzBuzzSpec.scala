@@ -18,7 +18,9 @@ class FizzBuzzKadaiSpec extends FlatSpec with BeforeAndAfter {
   behavior of "`stringFor` when input is less than 1"
   it should "throw Exception" in {
     assertThrows[Exception] {
-      FizzBuzz.stringFor(0)
+      val input = 0
+
+      FizzBuzz.stringFor(input)
     }
   }
 
@@ -27,7 +29,7 @@ class FizzBuzzKadaiSpec extends FlatSpec with BeforeAndAfter {
     val input = 3
     val expected = "Fizz"
 
-    val actual = FizzBuzz.stringFor(3)
+    val actual = FizzBuzz.stringFor(input)
 
     assert(expected === actual)
   }
@@ -37,7 +39,7 @@ class FizzBuzzKadaiSpec extends FlatSpec with BeforeAndAfter {
     val input = 15
     val expected = "FizzBuzz"
 
-    val actual = FizzBuzz.stringFor(15)
+    val actual = FizzBuzz.stringFor(input)
 
     assert(expected === actual)
   }
@@ -47,17 +49,17 @@ class FizzBuzzKadaiSpec extends FlatSpec with BeforeAndAfter {
     val input = 5
     val expected = "Buzz"
 
-    val actual = FizzBuzz.stringFor(5)
+    val actual = FizzBuzz.stringFor(input)
 
     assert(expected === actual)
   }
 
   behavior of "`stringFor` when input is not divisible by 3 or 5"
-  it should "return input" in {
+  it should "return input as String" in {
     val input = 1
-    val expected = 1
+    val expected = "1"
 
-    val actual = FizzBuzz.stringFor(1)
+    val actual = FizzBuzz.stringFor(input)
 
     assert(expected === actual)
   }

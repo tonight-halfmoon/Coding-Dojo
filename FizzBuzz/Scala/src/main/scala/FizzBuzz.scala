@@ -2,7 +2,7 @@ object FizzBuzz {
 
   private var filters : List[(Int) => String] = Nil
 
-  def stringFor(number: Int): Any =
+  def stringFor(number: Int): String =
   {
     throwNumberLessThanOneException(number)
     return process(number)
@@ -26,13 +26,13 @@ object FizzBuzz {
         ;
     }
 
-  private def process(number : Int): Any =
+  private def process(number : Int): String =
   {
     val stringForNumber = applyFilters(number)
     stringForNumber.isEmpty() match
     {
       case true =>
-        return number
+        return number.toString
       case _ =>
         return stringForNumber
     }

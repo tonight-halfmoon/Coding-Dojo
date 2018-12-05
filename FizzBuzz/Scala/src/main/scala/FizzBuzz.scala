@@ -37,7 +37,14 @@ object FizzBuzz {
 
   private def filter(input: List[Any]) : Any =
   {
-    input.mkString(" ")
+    input match {
+      case x::Nil =>
+        process(x)
+      case x::xs =>
+        process(x) + " " + filter(xs)
+      case Nil =>
+        Nil
+    }
   }
 
   private def filter(number : Int): String =

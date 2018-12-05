@@ -75,9 +75,9 @@ class FizzBuzzKadaiSpec extends FlatSpec with BeforeAndAfter {
   }
 
   behavior of "`stringFor` when input is a list"
-  it should "return input as white separated string" in {
-    val input = List(1,2,3, "a.word")
-    val expected = "1 2 3 a.word"
+  it should "return divisibility result as white separated string" in {
+    val input = List(1,2,3,5)
+    val expected = "1 2 Fizz Buzz"
 
     val actual = FizzBuzz.stringFor(input)
 

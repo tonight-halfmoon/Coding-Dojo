@@ -63,4 +63,14 @@ class FizzBuzzKadaiSpec extends FlatSpec with BeforeAndAfter {
 
     assert(expected === actual)
   }
+
+  behavior of "`stringFor` when input is not integer"
+  it should "return input" in {
+    val input = "aa"
+    val expected = "aa"
+
+    val actual = FizzBuzz.stringFor(input)
+
+    assert(expected === actual)
+  }
 }

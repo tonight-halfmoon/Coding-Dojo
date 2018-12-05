@@ -2,10 +2,15 @@ object FizzBuzz {
 
   private var filters : List[(Int) => String] = Nil
 
-  def stringFor(number: Int): String =
+  def stringFor(input: Any): Any =
   {
-    throwNumberLessThanOneException(number)
-    return process(number)
+    input match {
+      case integer: Int =>
+        throwNumberLessThanOneException(integer)
+        return process(integer)
+      case _ =>
+        input
+    }
   }
 
   def addFilter(filter: (Int) => String) =

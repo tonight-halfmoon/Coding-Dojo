@@ -27,10 +27,17 @@ object FizzBuzz {
     input match {
       case integer: Int =>
         throwNumberLessThanOneException(integer)
-        return filter(integer)
+        filter(integer)
+      case x::xs =>
+        filter(x::xs)
       case _ =>
         input
     }
+  }
+
+  private def filter(input: List[Any]) : Any =
+  {
+    input.mkString(" ")
   }
 
   private def filter(number : Int): String =

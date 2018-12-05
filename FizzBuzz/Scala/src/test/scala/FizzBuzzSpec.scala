@@ -73,4 +73,14 @@ class FizzBuzzKadaiSpec extends FlatSpec with BeforeAndAfter {
 
     assert(expected === actual)
   }
+
+  behavior of "`stringFor` when input is a list"
+  it should "return input as white separated string" in {
+    val input = List(1,2,3, "a.word")
+    val expected = "1 2 3 a.word"
+
+    val actual = FizzBuzz.stringFor(input)
+
+    assert(expected ===actual)
+  }
 }

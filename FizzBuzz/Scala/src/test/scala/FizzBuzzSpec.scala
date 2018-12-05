@@ -16,8 +16,8 @@ class FizzBuzzKadaiSpec extends FlatSpec with BeforeAndAfter {
   }
 
   behavior of "`stringFor` when input is less than 1"
-  it should "throw Exception" in {
-    assertThrows[Exception] {
+  it should "throw NumberLessThanOneException" in {
+    assertThrows[NumberLessThanOneException] {
       val input = 0
 
       FizzBuzz.stringFor(input)

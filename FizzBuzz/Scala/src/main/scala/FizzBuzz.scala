@@ -19,11 +19,8 @@ object FizzBuzz {
   }
 
   private def throwNumberLessThanOneException(number: Int) =
-    (1 > number) match {
-      case true =>
-        throw new NumberLessThanOneException(number)
-      case _ =>
-        ;
+    if (1 > number) {
+      throw new NumberLessThanOneException(number)
     }
 
   private def process(number : Int): String =

@@ -4,7 +4,8 @@ object FizzBuzz {
 
   def stringFor(input: Any): Any =
   {
-    process(input)
+    val result = process(input)
+    print(result)
   }
 
   def addFilter(filter: (Int) => String) =
@@ -29,21 +30,19 @@ object FizzBuzz {
         throwNumberLessThanOneException(integer)
         filter(integer)
       case x::xs =>
-        filter(x::xs)
+        filter(x::xs, Nil)
       case _ =>
         input
     }
   }
 
-  private def filter(input: List[Any]) : Any =
+  private def filter(input: List[Any], result: List[Any]) : Any =
   {
     input match {
-      case x::Nil =>
-        process(x)
-      case x::xs =>
-        process(x) + " " + filter(xs)
       case Nil =>
-        Nil
+        result
+      case x::xs =>
+       filter(xs, result :+ process(x))
     }
   }
 
@@ -72,6 +71,22 @@ object FizzBuzz {
         stringForNumber
       case _ =>
         applyFilters(number, filters.tail, stringForNumber.concat(filters.head(number)))
+    }
+  }
+
+  private def print(result: Any): Any =
+  {
+    result match {
+      case string: String =>
+        string
+      case Nil =>
+        ""
+      case x::Nil =>
+        x
+      case x::xs =>
+        x + " " + print(xs)
+      case _ =>
+        result
     }
   }
 }

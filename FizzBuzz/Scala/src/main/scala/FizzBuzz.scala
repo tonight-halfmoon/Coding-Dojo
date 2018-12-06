@@ -19,15 +19,16 @@ object FizzBuzz {
   }
 
   private def throwNumberLessThanOneException(number: Int) =
+  {
     if (1 > number) {
       throw new NumberLessThanOneException(number)
     }
+  }
 
   private def process(input: Any) : Any =
   {
     input match {
       case integer: Int =>
-        throwNumberLessThanOneException(integer)
         filter(integer)
       case x::xs =>
         filter(x::xs, Nil)
@@ -48,6 +49,7 @@ object FizzBuzz {
 
   private def filter(number: Int): String =
   {
+    throwNumberLessThanOneException(number)
     val stringForNumber = applyFilters(number)
     stringForNumber.isEmpty() match
     {

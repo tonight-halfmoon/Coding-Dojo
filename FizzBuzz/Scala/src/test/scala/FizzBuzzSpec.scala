@@ -71,6 +71,6 @@ class FizzBuzzKadaiSpec extends FlatSpec with BeforeAndAfter {
 
     val actual = FizzBuzz.stringFor(input)
 
-    assert(expected ===actual)
+    assert(expected === actual)
   }
 }

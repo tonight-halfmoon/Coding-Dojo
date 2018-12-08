@@ -1,6 +1,7 @@
 object FizzBuzz {
 
   private var filters : List[(Int) => String] = Nil
+  private var printers : List[(Any) => Any] = Nil
 
   def stringFor(input: Any): Any =
   {
@@ -16,6 +17,12 @@ object FizzBuzz {
   def removeAllFilters()
   {
     filters = Nil
+  }
+
+  def addPrinter(printer: (Any) => Any): Int =
+  {
+    printers = printer::printers
+    printers.length
   }
 
   private def throwNumberLessThanOneException(number: Int) =

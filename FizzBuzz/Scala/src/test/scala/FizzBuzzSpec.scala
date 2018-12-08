@@ -64,12 +64,22 @@ class FizzBuzzKadaiSpec extends FlatSpec with BeforeAndAfter {
     assert(expected === actual)
   }
 
-  behavior of "`stringFor` when input is a list"
-  it should "return divisibility result as white separated string" in {
+  behavior of "`stringFor` given a list of integer and Default Printer"
+  it should "return result as white separated string" in {
     val input = List(1,2,3,5)
     val expected = "1 2 Fizz Buzz"
 
     val actual = FizzBuzz.stringFor(input)
+
+    assert(expected === actual)
+  }
+
+  behavior of "`addPrinter`"
+  it should "always increases number of printers by 1" in {
+    val input = CommaSeparatedPrinter.print _
+    val expected = 1
+
+    val actual = FizzBuzz.addPrinter(input)
 
     assert(expected === actual)
   }

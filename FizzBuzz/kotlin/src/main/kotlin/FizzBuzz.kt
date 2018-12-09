@@ -2,6 +2,23 @@ object FizzBuzz {
 
 	private var filters: MutableList<(Int) -> String> = mutableListOf()
 
+	fun stringFor(input: List<Any>): Any
+	{
+		return input.map({
+			when(it)
+			{
+				is Int -> stringFor(it)
+				else -> it
+			}
+		}).fold("", { acc,
+		it -> when (it)
+		{
+			is Int -> acc + it.toString() + " "
+			is String -> acc + it + " "
+			else -> acc
+		}}).trim()
+	}
+
 	fun stringFor(input: Int): Any
 	{
 		throwInputLessThanOneException(input)
@@ -30,7 +47,7 @@ object FizzBuzz {
 
 	private fun applyFilters(input: Int): String
 	{
-		return applyFilters(input, filters, "")
+		return applyFilters(input, filters.toMutableList(), "")
 	}
 
 	private tailrec fun applyFilters(input: Int, filters: MutableList<(Int) -> String>, result: String): String

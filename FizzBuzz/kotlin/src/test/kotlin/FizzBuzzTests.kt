@@ -70,4 +70,15 @@ class FizzBuzzTest {
 
 		assertEquals(expected, actual)
 	}
+
+	@Test
+	fun `'stringFor' given list of integer, return result as whitespace-separated string`()
+	{
+		val input = listOf(1,3,5,7,15)
+		val expected = "1 Fizz Buzz 7 FizzBuzz"
+
+		val actual = FizzBuzz.stringFor(input)
+
+		assertEquals(expected, actual)
+	}
 }

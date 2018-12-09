@@ -1,6 +1,7 @@
 object FizzBuzz {
 
 	private var filters: MutableList<(Int) -> String> = mutableListOf()
+	private var printers: MutableList<(Any) -> Any> = mutableListOf()
 
 	fun stringFor(input: List<Any>): Any
 	{
@@ -26,6 +27,12 @@ object FizzBuzz {
 	fun removeAllFilters()
 	{
 		filters.clear()
+	}
+
+	fun addPrinter(printer: (Any) -> Any): Int
+	{
+		printers.add(printer)
+		return printers.size
 	}
 
 	private fun process(input: Int): Any

@@ -81,4 +81,15 @@ class FizzBuzzTest {
 
 		assertEquals(expected, actual)
 	}
+
+	@Test
+	fun `'addPrinter' always increase number of printers by one`()
+	{
+		val input = { value: Any -> value }
+		val expected = 1
+
+		val actual = FizzBuzz.addPrinter(input)
+
+		assertEquals(expected, actual)
+	}
 }

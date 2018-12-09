@@ -35,6 +35,12 @@ object FizzBuzz {
 		return printers.size
 	}
 
+	fun removeAllPrinters(): Int
+	{
+		printers.clear()
+		return printers.size
+	}
+
 	private fun process(input: Int): Any
 	{
 		val result = applyFilters(input)

@@ -92,4 +92,14 @@ class FizzBuzzTest {
 
 		assertEquals(expected, actual)
 	}
+
+	@Test
+	fun `'removeAllPrinters' always remove all printers`()
+	{
+		val expected = 0
+
+		val actual = FizzBuzz.removeAllPrinters()
+
+		assertEquals(expected, actual)
+	}
 }

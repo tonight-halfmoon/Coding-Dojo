@@ -91,5 +91,17 @@ class FizzBuzzKadaiSpec extends FlatSpec with BeforeAndAfter {
     val actual = FizzBuzz.stringFor(input)
 
     assert(expected === actual)
-   }
+  }
+
+  behavior of "`stringFor` when input is divisible by 2"
+  it should "return 'Foo'" in {
+    val input = 2
+    val expected = "Foo"
+    val filter = Foo.foo
+    FizzBuzz.addFilter(filter)
+
+    val actual = FizzBuzz.stringFor(input)
+
+    assert(expected === actual)
+  }
 }

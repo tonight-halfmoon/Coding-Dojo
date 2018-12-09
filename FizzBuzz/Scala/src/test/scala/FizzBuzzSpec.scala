@@ -4,11 +4,8 @@ import org.scalatest.BeforeAndAfter
 class FizzBuzzKadaiSpec extends FlatSpec with BeforeAndAfter {
 
   before {
-    val isMultipleOf = (number: Int, divisor: Int) => (number % divisor) match {case 0 => true case _ => false}
-    val Fizz = (number: Int) => (0 == number % 3) match {case true => "Fizz" case _ => ""}
-    val Buzz = (number: Int) => (0 == number % 5) match {case true => "Buzz" case _ => ""}
-    FizzBuzz.addFilter(Fizz)
-    FizzBuzz.addFilter(Buzz)
+    FizzBuzz.addFilter(Fizz.fizz)
+    FizzBuzz.addFilter(Buzz.buzz)
   }
 
   after {

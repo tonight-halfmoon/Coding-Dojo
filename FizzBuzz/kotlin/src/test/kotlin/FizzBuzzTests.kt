@@ -24,7 +24,9 @@ class FizzBuzzTest {
 	@Test(expected = Exception::class)
 	fun `'stringFor' when number is less than 1, then throw exception`()
 	{
-		FizzBuzz.stringFor(0)
+		val input = 0
+
+		FizzBuzz.stringFor(input)
 	}
 
 	@Test
@@ -33,7 +35,7 @@ class FizzBuzzTest {
 		val input = 3
 		val expected = "Fizz"
 
-		val actual = FizzBuzz.stringFor(3)
+		val actual = FizzBuzz.stringFor(input)
 
 		assertEquals(expected, actual)
 	}
@@ -44,7 +46,7 @@ class FizzBuzzTest {
 		val input = 5
 		val expected = "Buzz"
 
-		val actual = FizzBuzz.stringFor(5)
+		val actual = FizzBuzz.stringFor(input)
 
 		assertEquals(expected, actual)
 	}
@@ -55,7 +57,7 @@ class FizzBuzzTest {
 		val input = 15
 		val expected = "FizzBuzz"
 
-		val actual =  FizzBuzz.stringFor(15)
+		val actual =  FizzBuzz.stringFor(input)
 
 		assertEquals(expected, actual)
 	}

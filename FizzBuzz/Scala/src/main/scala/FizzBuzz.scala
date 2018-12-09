@@ -85,6 +85,16 @@ object FizzBuzz {
 
   private def print(result: Any): Any =
   {
+    printers match{
+      case Nil =>
+        printDefault(result)
+      case _ =>
+        printWith(result, printers)
+    }
+  }
+
+  private def printDefault(result: Any): Any =
+  {
     result match {
       case string: String =>
         string
@@ -97,5 +107,10 @@ object FizzBuzz {
       case _ =>
         result
     }
+  }
+
+  private def printWith(value: Any, printers: List[(Any) => Any]): Any =
+  {
+    printers.head(value)
   }
 }

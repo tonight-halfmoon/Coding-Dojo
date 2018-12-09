@@ -83,4 +83,16 @@ class FizzBuzzKadaiSpec extends FlatSpec with BeforeAndAfter {
 
     assert(expected === actual)
   }
+
+  behavior of "`stringFor` given a list of intger and Comma Separated Printer"
+  it should "return result as comma separated string" in {
+    val input = List(1,2,3,5)
+    val expected = "1, 2, Fizz, Buzz"
+    val printer = CommaSeparatedPrinter.print _
+    FizzBuzz.addPrinter(printer)
+
+    val actual = FizzBuzz.stringFor(input)
+
+    assert(expected === actual)
+   }
 }

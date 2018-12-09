@@ -22,7 +22,7 @@ class FizzBuzzTest {
 	}
 
 	@Test(expected = Exception::class)
-	fun `'stringFor' when number is less than 1, then throw exception`()
+	fun `'stringFor' when input is less than 1, then throw exception`()
 	{
 		val input = 0
 
@@ -30,7 +30,7 @@ class FizzBuzzTest {
 	}
 
 	@Test
-	fun `'stringFor' when number is multiple of 3, then return 'Fizz'`()
+	fun `'stringFor' when input is multiple of 3, then return 'Fizz'`()
 	{
 		val input = 3
 		val expected = "Fizz"
@@ -41,7 +41,7 @@ class FizzBuzzTest {
 	}
 
 	@Test
-	fun `'stringFor' when number is multiple of 5, then return 'Buzz'`()
+	fun `'stringFor' when input is multiple of 5, then return 'Buzz'`()
 	{
 		val input = 5
 		val expected = "Buzz"
@@ -52,7 +52,7 @@ class FizzBuzzTest {
 	}
 
 	@Test
-	fun `'stringFor' when number is multiple of 3 and 5, then return 'FizzBuzz'`()
+	fun `'stringFor' when input is multiple of 3 and 5, then return 'FizzBuzz'`()
 	{
 		val input = 15
 		val expected = "FizzBuzz"

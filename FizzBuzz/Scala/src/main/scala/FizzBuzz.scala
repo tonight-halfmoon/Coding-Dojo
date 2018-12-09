@@ -19,6 +19,11 @@ object FizzBuzz {
     filters = Nil
   }
 
+  def removeAllPrinters()
+  {
+    printers = Nil
+  }
+
   def addPrinter(printer: (Any) => Any): Int =
   {
     printers = printer::printers
@@ -87,25 +92,9 @@ object FizzBuzz {
   {
     printers match{
       case Nil =>
-        printDefault(result)
+        result
       case _ =>
         printWith(result, printers)
-    }
-  }
-
-  private def printDefault(result: Any): Any =
-  {
-    result match {
-      case string: String =>
-        string
-      case Nil =>
-        ""
-      case x::Nil =>
-        x
-      case x::xs =>
-        x + " " + print(xs)
-      case _ =>
-        result
     }
   }
 

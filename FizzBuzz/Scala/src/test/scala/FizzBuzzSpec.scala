@@ -6,10 +6,12 @@ class FizzBuzzKadaiSpec extends FlatSpec with BeforeAndAfter {
   before {
     FizzBuzz.addFilter(Fizz.fizz)
     FizzBuzz.addFilter(Buzz.buzz)
+    FizzBuzz.addPrinter(DefaultPrinter.print _)
   }
 
   after {
     FizzBuzz.removeAllFilters()
+    FizzBuzz.removeAllPrinters()
   }
 
   behavior of "`stringFor` when input is less than 1"
@@ -74,6 +76,7 @@ class FizzBuzzKadaiSpec extends FlatSpec with BeforeAndAfter {
   behavior of "`addPrinter`"
   it should "always increases number of printers by 1" in {
     val input = CommaSeparatedPrinter.print _
+    FizzBuzz.removeAllPrinters()
     val expected = 1
 
     val actual = FizzBuzz.addPrinter(input)

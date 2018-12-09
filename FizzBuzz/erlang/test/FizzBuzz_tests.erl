@@ -3,7 +3,7 @@
 -include_lib("eunit/include/eunit.hrl").
 
 stringFor_whenInputIsNotDivisibleBy3_or5_thenReturnInputAsString_test() ->
-    Input = 1, 
+    Input = 1,
     Expected = "1",
     beforeEach(),
 

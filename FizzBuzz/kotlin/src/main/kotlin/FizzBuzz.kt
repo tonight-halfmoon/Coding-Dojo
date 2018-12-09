@@ -20,11 +20,11 @@ object FizzBuzz {
 
 	private fun process(input: Int): Any
 	{
-		val stringForInput = applyFilters(input)
-		return when (stringForInput.isEmpty())
+		val result = applyFilters(input)
+		return when (result.isEmpty())
 		{
 			true -> input
-			else -> stringForInput
+			else -> result
 		}
 	}
 
@@ -33,14 +33,14 @@ object FizzBuzz {
 		return applyFilters(input, filters, "")
 	}
 
-	private tailrec fun applyFilters(input: Int, filters: MutableList<(Int) -> String>, stringForInput: String): String
+	private tailrec fun applyFilters(input: Int, filters: MutableList<(Int) -> String>, result: String): String
 	{
 		return when (filters.isEmpty()) {
-			true -> stringForInput
+			true -> result
 			else -> {
 				val nextFilter = filters.first()
 				filters.remove(nextFilter)
-				applyFilters(input, filters, stringForInput.plus(nextFilter(input)))
+				applyFilters(input, filters, result.plus(nextFilter(input)))
 			}
 		}
 	}

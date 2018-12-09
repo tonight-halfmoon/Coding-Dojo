@@ -57,13 +57,13 @@ object FizzBuzz {
   private def filter(number: Int): String =
   {
     throwNumberLessThanOneException(number)
-    val stringForNumber = applyFilters(number)
-    stringForNumber.isEmpty() match
+    val result = applyFilters(number)
+    result.isEmpty() match
     {
       case true =>
         number.toString
       case _ =>
-        stringForNumber
+        result
     }
   }
 
@@ -72,14 +72,14 @@ object FizzBuzz {
     return applyFilters(number, filters.reverse, "")
   }
 
-  private def applyFilters(number: Int, filters: List[(Int) => String], stringForNumber: String): String =
+  private def applyFilters(number: Int, filters: List[(Int) => String], result: String): String =
   {
     filters match
     {
       case Nil =>
-        stringForNumber
+        result
       case _ =>
-        applyFilters(number, filters.tail, stringForNumber.concat(filters.head(number)))
+        applyFilters(number, filters.tail, result.concat(filters.head(number)))
     }
   }
 

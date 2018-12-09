@@ -48,7 +48,7 @@ object FizzBuzz {
 	private fun throwInputLessThanOneException(input: Int)
 	{
 		if (input < 1) {
-			throw NumberLessThanOneException(input)
+			throw IntegerLessThanOneException(input)
 		}
 	}
 }

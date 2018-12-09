@@ -18,7 +18,7 @@ class FizzBuzzTest {
 		FizzBuzz.removeAllFilters()
 	}
 
-	@Test(expected = NumberLessThanOneException::class)
+	@Test(expected = IntegerLessThanOneException::class)
 	fun `'stringFor' when input is less than 1, then throw exception`()
 	{
 		val input = 0

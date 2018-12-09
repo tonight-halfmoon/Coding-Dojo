@@ -10,7 +10,7 @@ object FizzBuzz {
 			is Int -> stringFor(it)
 			else -> it
 		}})
-		return DefaultPrinter(result)
+		return print(result)
 	}
 
 	fun stringFor(input: Int): Any
@@ -73,5 +73,10 @@ object FizzBuzz {
 		if (input < 1) {
 			throw IntegerLessThanOneException(input)
 		}
+	}
+
+	private fun print(value: List<Any>): Any
+	{
+		return DefaultPrinter(value)
 	}
 }

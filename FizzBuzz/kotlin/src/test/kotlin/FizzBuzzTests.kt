@@ -8,9 +8,6 @@ class FizzBuzzTest {
 	@Before
 	fun setup()
 	{
-		val isMultipleOf = fun(number: Int, divisor: Int): Boolean {return when (number % divisor) {0 -> true else -> false}}
-		val Fizz: (Int) -> String = { number -> when(isMultipleOf(number, 3)) { true -> "Fizz" else -> ""}}
-		val Buzz: (Int) -> String = { number -> when(isMultipleOf(number, 5)) { true -> "Buzz" else -> ""}}
 		FizzBuzz.addFilter(Fizz)
 		FizzBuzz.addFilter(Buzz)
 	}

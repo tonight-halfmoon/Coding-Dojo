@@ -1,12 +1,11 @@
-
 object FizzBuzz {
 
 	private var filters: MutableList<(Int) -> String> = mutableListOf()
-	
-	fun stringFor(number: Int): Any
+
+	fun stringFor(input: Int): Any
 	{
-		throwNumberLessThanOneException(number)
-		return process(number)
+		throwInputLessThanOneException(input)
+		return process(input)
 	}
 
 	fun addFilter(filter: (Int) -> String)
@@ -19,37 +18,37 @@ object FizzBuzz {
 		filters.clear()
 	}
 
-	private fun process(number: Int): Any
+	private fun process(input: Int): Any
 	{
-		val stringForNumber = applyFilters(number)
-		return when (stringForNumber.isEmpty())
+		val stringForInput = applyFilters(input)
+		return when (stringForInput.isEmpty())
 		{
-			true -> number
-			else -> stringForNumber 
+			true -> input
+			else -> stringForInput
 		}
 	}
 
-	private fun applyFilters(number: Int): String
+	private fun applyFilters(input: Int): String
 	{
-		return applyFilters(number, filters, "")
+		return applyFilters(input, filters, "")
 	}
 
-	private tailrec fun applyFilters(number: Int, filters: MutableList<(Int) -> String>, stringForNumber: String): String
+	private tailrec fun applyFilters(input: Int, filters: MutableList<(Int) -> String>, stringForInput: String): String
 	{
 		return when (filters.isEmpty()) {
-			true -> stringForNumber
+			true -> stringForInput
 			else -> {
 				val nextFilter = filters.first()
 				filters.remove(nextFilter)
-				applyFilters(number, filters, stringForNumber.plus(nextFilter(number)))
+				applyFilters(input, filters, stringForInput.plus(nextFilter(input)))
 			}
 		}
 	}
 
-	private fun throwNumberLessThanOneException(number: Int)
+	private fun throwInputLessThanOneException(input: Int)
 	{
-		if (number < 1) {
-			throw NumberLessThanOneException(number)
+		if (input < 1) {
+			throw NumberLessThanOneException(input)
 		}
 	}
 }

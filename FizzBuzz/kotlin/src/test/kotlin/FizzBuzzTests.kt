@@ -58,4 +58,16 @@ class FizzBuzzTest {
 
 		assertEquals(expected, actual)
 	}
+
+	@Test
+	fun `'stringFor' when input is multiple of 2, then return 'Foo'`()
+	{
+		val input = 2
+		val expected = "Foo"
+		FizzBuzz.addFilter(Foo)
+
+		val actual = FizzBuzz.stringFor(input)
+
+		assertEquals(expected, actual)
+	}
 }

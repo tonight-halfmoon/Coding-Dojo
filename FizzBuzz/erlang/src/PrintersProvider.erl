@@ -1,15 +1,12 @@
 -module('PrintersProvider').
 
--export([addPrinter/1, printers/0, print/1, removeAll/0]).
+-export([add/1, printers/0, removeAll/0]).
 
-addPrinter(Printer) ->
+add(Printer) ->
     'ServiceProvider':add(Printer, ?MODULE).
 
 printers() ->
     'ServiceProvider':services(?MODULE).
-
-print(Input) ->
-    Input.
 
 removeAll() ->
     'ServiceProvider':removeAll(?MODULE).

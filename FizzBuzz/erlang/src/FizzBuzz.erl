@@ -11,13 +11,13 @@ stringFor(Input) ->
     print(Result).
 
 addFilter(Filter) ->
-    'FiltersProvider':addFilter(Filter).
+    'FiltersProvider':add(Filter).
 
 removeAllFilters() ->
-    'FiltersProvider':removeAllFilters().
+    'FiltersProvider':removeAll().
 
 addPrinter(Printer) ->
-    'PrintersProvider':addPrinter(Printer).
+    'PrintersProvider':add(Printer).
 
 removeAllPrinters() ->
     'PrintersProvider':removeAll().

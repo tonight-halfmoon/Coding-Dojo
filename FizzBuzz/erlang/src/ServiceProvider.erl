@@ -1,6 +1,6 @@
 -module('ServiceProvider').
 
--export([add/2, count/1, removeAll/1, services/1, isRunning/1]).
+-export([add/2, removeAll/1, services/1]).
 
 -export([init/0]).
 
@@ -23,13 +23,6 @@ request(add, Service, Name) ->
 	    Reply
     after 300 ->
 	    exit(tieout)
-    end.
-
-count(Name) ->
-    Name ! {number_of_services, self()},
-    receive
-	Reply ->
-	    Reply
     end.
 
 removeAll(Name) ->

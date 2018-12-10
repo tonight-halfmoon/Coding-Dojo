@@ -1,6 +1,10 @@
 -module('PrinterJob').
 
--export([print/2]).
+-export([print/1]).
+
+print(Value) ->
+    Printers = 'PrintersProvider':printers(),
+    print(Value, Printers).
 
 print(Value, []) ->
     Value;

@@ -10,5 +10,4 @@ process(Input) ->
     'ProcessJob':process(Input).
 
 print(Value) ->
-    Printers = 'PrintersProvider':printers(),
-    'PrinterJob':print(Value, Printers).
+    'PrinterJob':print(Value).

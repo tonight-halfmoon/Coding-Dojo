@@ -77,6 +77,14 @@ object FizzBuzz {
 
 	private fun print(value: List<Any>): Any
 	{
-		return DefaultPrinter(value)
+		return when (printers.size) {
+			0 -> DefaultPrinter(value)
+			else -> printWith(value, printers)
+		}
+	}
+
+	private fun printWith(value: Any, printers: List<(Any) -> Any>): Any
+	{
+		return printers.first()(value)
 	}
 }

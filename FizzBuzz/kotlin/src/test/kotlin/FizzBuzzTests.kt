@@ -27,7 +27,7 @@ class FizzBuzzTest {
 	}
 
 	@Test
-	fun `'stringFor' when input is multiple of 3, then return 'Fizz'`()
+	fun `'stringFor' when input is divisible by 3, then return 'Fizz'`()
 	{
 		val input = 3
 		val expected = "Fizz"
@@ -38,7 +38,7 @@ class FizzBuzzTest {
 	}
 
 	@Test
-	fun `'stringFor' when input is multiple of 5, then return 'Buzz'`()
+	fun `'stringFor' when input is divisible by 5, then return 'Buzz'`()
 	{
 		val input = 5
 		val expected = "Buzz"
@@ -49,7 +49,7 @@ class FizzBuzzTest {
 	}
 
 	@Test
-	fun `'stringFor' when input is multiple of 3 and 5, then return 'FizzBuzz'`()
+	fun `'stringFor' when input is divisible by 3 and 5, then return 'FizzBuzz'`()
 	{
 		val input = 15
 		val expected = "FizzBuzz"
@@ -60,7 +60,7 @@ class FizzBuzzTest {
 	}
 
 	@Test
-	fun `'stringFor' when input is multiple of 2, then return 'Foo'`()
+	fun `'stringFor' when input is divisible by 2, then return 'Foo'`()
 	{
 		val input = 2
 		val expected = "Foo"

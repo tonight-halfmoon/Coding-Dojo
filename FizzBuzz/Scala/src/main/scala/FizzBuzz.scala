@@ -29,10 +29,10 @@ object FizzBuzz {
     printers = printer::printers
   }
 
-  private def throwIntegerLessThanOneException(number: Int) =
+  private def throwIntegerLessThanOneException(input: Int) =
   {
-    if (1 > number) {
-      throw new IntegerLessThanOneException(number)
+    if (1 > input) {
+      throw new IntegerLessThanOneException(input)
     }
   }
 
@@ -58,14 +58,14 @@ object FizzBuzz {
     }
   }
 
-  private def filter(number: Int): String =
+  private def filter(input: Int): String =
   {
-    throwIntegerLessThanOneException(number)
-    val result = applyFilters(number)
+    throwIntegerLessThanOneException(input)
+    val result = applyFilters(input)
     result.isEmpty() match
     {
       case true =>
-        number.toString
+        input.toString
       case _ =>
         result
     }

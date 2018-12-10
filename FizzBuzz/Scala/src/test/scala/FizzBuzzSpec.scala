@@ -73,17 +73,6 @@ class FizzBuzzKadaiSpec extends FlatSpec with BeforeAndAfter {
     assert(expected === actual)
   }
 
-  behavior of "`addPrinter`"
-  it should "always increases number of printers by 1" in {
-    val input = CommaSeparatedPrinter.print _
-    FizzBuzz.removeAllPrinters()
-    val expected = 1
-
-    val actual = FizzBuzz.addPrinter(input)
-
-    assert(expected === actual)
-  }
-
   behavior of "`stringFor` given a list of intger and Comma Separated Printer"
   it should "return result as comma separated string" in {
     val input = List(1,2,3,5)

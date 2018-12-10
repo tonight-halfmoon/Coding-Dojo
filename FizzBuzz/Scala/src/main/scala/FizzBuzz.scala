@@ -24,10 +24,9 @@ object FizzBuzz {
     printers = Nil
   }
 
-  def addPrinter(printer: (Any) => Any): Int =
+  def addPrinter(printer: (Any) => Any)
   {
     printers = printer::printers
-    printers.length
   }
 
   private def throwIntegerLessThanOneException(number: Int) =

@@ -28,23 +28,23 @@ process(Input) when is_integer(Input) andalso Input > 0 ->
     filter(Input).
 
 filter(Input) ->
-    StringForInput = applyFilters(Input),
-    case length(StringForInput) of
+    Result = applyFilters(Input),
+    case length(Result) of
 	0 ->
 	    integer_to_list(Input);
 	_ ->
-	    StringForInput
+	    Result
     end.
 
 applyFilters(Input) ->
     Filters =  'FiltersProvider':filters(),
     applyFilters(Input, Filters, "").
 
-applyFilters(_Input, [], StringForInput) ->
-	StringForInput;
-applyFilters(Input, [NextFilter|Filters], StringForInput) ->
-	applyFilters(Input, Filters, lists:concat([NextFilter(Input), StringForInput])).
+applyFilters(_Input, [], Result) ->
+	Result;
+applyFilters(Input, [NextFilter|Filters], Result) ->
+	applyFilters(Input, Filters, lists:concat([NextFilter(Input), Result])).
 
-print(Result) ->
+print(Value) ->
     Printers = 'PrintersProvider':printers(),
-    'PrinterJob':print(Result, Printers).
+    'PrinterJob':print(Value, Printers).

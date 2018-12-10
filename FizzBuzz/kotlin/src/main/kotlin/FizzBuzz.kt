@@ -30,16 +30,14 @@ object FizzBuzz {
 		filters.clear()
 	}
 
-	fun addPrinter(printer: (List<Any>) -> Any): Int
+	fun addPrinter(printer: (List<Any>) -> Any)
 	{
 		printers.add(printer)
-		return printers.size
 	}
 
-	fun removeAllPrinters(): Int
+	fun removeAllPrinters()
 	{
 		printers.clear()
-		return printers.size
 	}
 
 	private fun process(input: Int): Any

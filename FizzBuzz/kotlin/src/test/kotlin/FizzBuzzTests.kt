@@ -74,33 +74,12 @@ class FizzBuzzTest {
 	}
 
 	@Test
-	fun `'stringFor' given list of integer, return result as whitespace-separated string`()
+	fun `'stringFor' given list of integer and Default Printer, return result as whitespace-separated string`()
 	{
 		val input = listOf(1,3,5,7,15)
 		val expected = "1 Fizz Buzz 7 FizzBuzz"
 
 		val actual = FizzBuzz.stringFor(input)
-
-		assertEquals(expected, actual)
-	}
-
-	@Test
-	fun `'addPrinter' always increase number of printers by one`()
-	{
-		val input = { value: Any -> value }
-		val expected = 2
-
-		val actual = FizzBuzz.addPrinter(input)
-
-		assertEquals(expected, actual)
-	}
-
-	@Test
-	fun `'removeAllPrinters' always remove all printers`()
-	{
-		val expected = 0
-
-		val actual = FizzBuzz.removeAllPrinters()
 
 		assertEquals(expected, actual)
 	}

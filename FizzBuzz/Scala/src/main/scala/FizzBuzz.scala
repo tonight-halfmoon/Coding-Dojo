@@ -73,7 +73,7 @@ object FizzBuzz {
 
   private def applyFilters(number: Int): String =
   {
-    return applyFilters(number, filters.reverse, "")
+    applyFilters(number, filters.reverse, "")
   }
 
   private def applyFilters(number: Int, filters: List[(Int) => String], result: String): String =

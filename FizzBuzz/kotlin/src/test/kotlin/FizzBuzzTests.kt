@@ -10,12 +10,14 @@ class FizzBuzzTest {
 	{
 		FizzBuzz.addFilter(Fizz)
 		FizzBuzz.addFilter(Buzz)
+		FizzBuzz.addPrinter(DefaultPrinter)
 	}
 
 	@After
 	fun cleanUp()
 	{
 		FizzBuzz.removeAllFilters()
+		FizzBuzz.removeAllPrinters()
 	}
 
 	@Test(expected = IntegerLessThanOneException::class)
@@ -86,7 +88,7 @@ class FizzBuzzTest {
 	fun `'addPrinter' always increase number of printers by one`()
 	{
 		val input = { value: Any -> value }
-		val expected = 1
+		val expected = 2
 
 		val actual = FizzBuzz.addPrinter(input)
 
@@ -108,6 +110,17 @@ class FizzBuzzTest {
 	{
 		val input = 1
 		val expected = "1"
+
+		val actual = FizzBuzz.stringFor(input)
+
+		assertEquals(expected, actual)
+	}
+
+	@Test
+	fun `'stringFor' given list of integer and comma separated printer, then return result as a comma-separated string for each integer's divisibility`() {
+		val input = mutableListOf(1,3,5,7,15)
+		val expected = "1, Fizz, Buzz, 7, FizzBuzz"
+		FizzBuzz.addPrinter(CommaSeparatedPrinter)
 
 		val actual = FizzBuzz.stringFor(input)
 

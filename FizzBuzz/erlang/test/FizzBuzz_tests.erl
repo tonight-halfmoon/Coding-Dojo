@@ -50,17 +50,17 @@ stringFor_whenInputIsDivisibleBy3_and5_thenReturnFizzBuzz_test() ->
     ?assertEqual(Expected, Actual).
 
 beforeEach() ->
-    'FizzBuzz':addFilter('Fizz':fizz()),
-    'FizzBuzz':addFilter('Buzz':buzz()).
+    'ServiceConfigurator':addFilter('Fizz':fizz()),
+    'ServiceConfigurator':addFilter('Buzz':buzz()).
 
 afterEach() ->
-    'FizzBuzz':removeAllFilters(),
-    'FizzBuzz':removeAllPrinters().
+    'ServiceConfigurator':removeAllFilters(),
+    'ServiceConfigurator':removeAllPrinters().
 
 stringFor_givenListOfIntergerAndPrinterCommaSeparated_thenReturnResultCommaSeparated_test() ->
     beforeEach(),
     Input = [1,2,3,5,7,15],
-    'FizzBuzz':addPrinter('PrinterCommaSeparated':print()),
+    'ServiceConfigurator':addPrinter('PrinterCommaSeparated':print()),
     Expected = "1, 2, Fizz, Buzz, 7, FizzBuzz",
 
     Actual = 'FizzBuzz':stringFor(Input),
@@ -72,7 +72,7 @@ stringFor_givenListOfIntegerAndPrinterWhiteSpace_thenReturnResultWhiteSpaceSepar
     beforeEach(),
     Input = [1,2,3,4,5,7,15],
     Expected = "1 2 Fizz 4 Buzz 7 FizzBuzz",
-    'FizzBuzz':addPrinter('PrinterWhiteSpace':print()),
+    'ServiceConfigurator':addPrinter('PrinterWhiteSpace':print()),
 
     Actual = 'FizzBuzz':stringFor(Input),
     afterEach(),
@@ -82,7 +82,7 @@ stringFor_givenListOfIntegerAndPrinterWhiteSpace_thenReturnResultWhiteSpaceSepar
 stringFor_whenInputIsDivisibleBy2_thenReturnFoo_test() ->
     Input = 2,
     Expected = "Foo",
-    'FizzBuzz':addFilter('Foo':foo()),
+    'ServiceConfigurator':addFilter('Foo':foo()),
 
     Actual = 'FizzBuzz':stringFor(Input),
     afterEach(),
@@ -92,10 +92,10 @@ stringFor_whenInputIsDivisibleBy2_thenReturnFoo_test() ->
 stringFor_givenListOfIntegersAndCommaSeparatedPrinterAndFiltersFizz_Buzz_and_Foo_thenReturnResultWithCommaSeparated_test() ->
     Input = [1,2,3,4,5,7,15],
     Expected = "1, Foo, Fizz, Foo, Buzz, 7, FizzBuzz",
-    'FizzBuzz':addPrinter('PrinterCommaSeparated':print()),
-    'FizzBuzz':addFilter('Fizz':fizz()),
-    'FizzBuzz':addFilter('Buzz':buzz()),
-    'FizzBuzz':addFilter('Foo':foo()),
+    'ServiceConfigurator':addPrinter('PrinterCommaSeparated':print()),
+    'ServiceConfigurator':addFilter('Fizz':fizz()),
+    'ServiceConfigurator':addFilter('Buzz':buzz()),
+    'ServiceConfigurator':addFilter('Foo':foo()),
 
     Actual = 'FizzBuzz':stringFor(Input),
     afterEach(),

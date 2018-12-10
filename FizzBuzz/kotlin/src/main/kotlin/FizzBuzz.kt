@@ -17,7 +17,7 @@ object FizzBuzz {
 	{
 		throwInputLessThanOneException(input)
 		val result = process(input)
-		return result.toString()
+		return print(result)
 	}
 
 	fun addFilter(filter: (Int) -> String)
@@ -78,5 +78,10 @@ object FizzBuzz {
 	{
 		val lastPrinter = printers.last()
 		return lastPrinter(value)
+	}
+
+	private fun print(value: Any): Any
+	{
+		return value.toString()
 	}
 }

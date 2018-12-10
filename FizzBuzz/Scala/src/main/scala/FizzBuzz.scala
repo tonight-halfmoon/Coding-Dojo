@@ -1,12 +1,11 @@
 object FizzBuzz {
 
   private var filters : List[(Int) => String] = Nil
-  private var printers : List[(Any) => Any] = Nil
+  private var printers : List[(List[String]) => String] = Nil
 
-  def stringFor(input: Any): Any =
+  def stringFor(input: Any) : Any =
   {
-    val result = process(input)
-    print(result)
+    process(input)
   }
 
   def addFilter(filter: (Int) => String) =
@@ -19,51 +18,48 @@ object FizzBuzz {
     filters = Nil
   }
 
-  def removeAllPrinters()
-  {
-    printers = Nil
-  }
-
-  def addPrinter(printer: (Any) => Any)
+  def addPrinter(printer: (List[String]) => String) =
   {
     printers = printer::printers
   }
 
-  private def throwIntegerLessThanOneException(input: Int) =
+  def removeAllPrinters() =
   {
-    if (1 > input) {
-      throw new IntegerLessThanOneException(input)
-    }
+    printers = Nil
   }
 
-  private def process(input: Any) : Any =
+  private def process(input: Any) : String =
   {
     input match {
       case integer: Int =>
-        filter(integer)
+        process(integer)
       case x::xs =>
-        filter(x::xs, Nil)
+        process(x::xs)
       case _ =>
-        input
+        None.toString
     }
   }
 
-  private def filter(input: List[Any], result: List[Any]) : Any =
+  private def process(input: List[Any]): String =
+  {
+    process(input, Nil)
+  }
+
+  private def process(input: List[Any], result: List[String]): String =
   {
     input match {
-      case Nil =>
-        result
       case x::xs =>
-       filter(xs, result :+ process(x))
+        process(xs, result :+ process(x))
+      case Nil =>
+        print(result)
     }
   }
 
-  private def filter(input: Int): String =
+  private def process(input: Int) : String =
   {
     throwIntegerLessThanOneException(input)
     val result = applyFilters(input)
-    result.isEmpty() match
-    {
+    result.isEmpty() match {
       case true =>
         input.toString
       case _ =>
@@ -71,34 +67,36 @@ object FizzBuzz {
     }
   }
 
-  private def applyFilters(number: Int): String =
+  private def applyFilters(input: Int): String =
   {
-    return applyFilters(number, filters.reverse, "")
+    return applyFilters(input, filters, "")
   }
 
-  private def applyFilters(number: Int, filters: List[(Int) => String], result: String): String =
+  @scala.annotation.tailrec
+  private def applyFilters(input: Int, filters: List[(Int) => String], result: String): String =
   {
-    filters match
-    {
+    filters match {
       case Nil =>
         result
       case _ =>
-        applyFilters(number, filters.tail, result.concat(filters.head(number)))
+        applyFilters(input, filters.tail, result.concat(filters.head(input)))
     }
   }
 
-  private def print(result: Any): Any =
+  private def throwIntegerLessThanOneException(input: Int) =
   {
-    printers match{
+    if (1 > input) {
+      throw new IntegerLessThanOneException()
+    }
+  }
+
+  private def print(result: List[String]): String =
+  {
+    printers match {
       case Nil =>
-        result
+        DefaultPrinter.print(result)
       case _ =>
-        printWith(result, printers)
+        printers.head(result)
     }
-  }
-
-  private def printWith(value: Any, printers: List[(Any) => Any]): Any =
-  {
-    printers.head(value)
   }
 }

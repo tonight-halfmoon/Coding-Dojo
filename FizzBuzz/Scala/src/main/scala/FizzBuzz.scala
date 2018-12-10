@@ -30,10 +30,10 @@ object FizzBuzz {
     printers.length
   }
 
-  private def throwNumberLessThanOneException(number: Int) =
+  private def throwIntegerLessThanOneException(number: Int) =
   {
     if (1 > number) {
-      throw new NumberLessThanOneException(number)
+      throw new IntegerLessThanOneException(number)
     }
   }
 
@@ -61,7 +61,7 @@ object FizzBuzz {
 
   private def filter(number: Int): String =
   {
-    throwNumberLessThanOneException(number)
+    throwIntegerLessThanOneException(number)
     val result = applyFilters(number)
     result.isEmpty() match
     {

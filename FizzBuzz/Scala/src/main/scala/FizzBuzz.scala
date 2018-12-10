@@ -71,19 +71,19 @@ object FizzBuzz {
     }
   }
 
-  private def applyFilters(number: Int): String =
+  private def applyFilters(input: Int): String =
   {
-    applyFilters(number, filters.reverse, "")
+    applyFilters(input, filters.reverse, "")
   }
 
-  private def applyFilters(number: Int, filters: List[(Int) => String], result: String): String =
+  private def applyFilters(input: Int, filters: List[(Int) => String], result: String): String =
   {
     filters match
     {
       case Nil =>
         result
       case _ =>
-        applyFilters(number, filters.tail, result.concat(filters.head(number)))
+        applyFilters(input, filters.tail, result.concat(filters.head(input)))
     }
   }
 

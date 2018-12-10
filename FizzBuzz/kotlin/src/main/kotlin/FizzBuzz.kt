@@ -16,7 +16,8 @@ object FizzBuzz {
 	fun stringFor(input: Int): Any
 	{
 		throwInputLessThanOneException(input)
-		return process(input)
+		val result = process(input)
+		return result.toString()
 	}
 
 	fun addFilter(filter: (Int) -> String)

@@ -102,4 +102,16 @@ class FizzBuzzTest {
 
 		assertEquals(expected, actual)
 	}
+
+	@Test
+	fun `'stringFor' when input is not divisible by 3 or 5, then return input as String`()
+	{
+		val input = 1
+		val expected = "1"
+
+		val actual = FizzBuzz.stringFor(input)
+
+		assertEquals(expected, actual)
+	}
+
 }

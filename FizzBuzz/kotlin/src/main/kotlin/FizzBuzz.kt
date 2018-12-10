@@ -82,6 +82,6 @@ object FizzBuzz {
 
 	private fun print(value: Any): Any
 	{
-		return value.toString()
+		return SimplePrinter(value)
 	}
 }

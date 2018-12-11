@@ -8,15 +8,15 @@ class FizzBuzzTest {
 	@Before
 	fun setup()
 	{
-		FizzBuzz.addFilter(Fizz)
-		FizzBuzz.addFilter(Buzz)
+		FiltersProvider.add(Fizz)
+		FiltersProvider.add(Buzz)
 		FizzBuzz.addPrinter(DefaultPrinter)
 	}
 
 	@After
 	fun cleanUp()
 	{
-		FizzBuzz.removeAllFilters()
+		FiltersProvider.removeAll()
 		FizzBuzz.removeAllPrinters()
 	}
 
@@ -66,7 +66,7 @@ class FizzBuzzTest {
 	{
 		val input = 2
 		val expected = "Foo"
-		FizzBuzz.addFilter(Foo)
+		FiltersProvider.add(Foo)
 
 		val actual = FizzBuzz.stringFor(input)
 

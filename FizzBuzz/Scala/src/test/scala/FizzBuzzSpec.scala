@@ -4,13 +4,13 @@ import org.scalatest.BeforeAndAfter
 class FizzBuzzKadaiSpec extends FlatSpec with BeforeAndAfter {
 
   before {
-    FizzBuzz.addFilter(Fizz.fizz)
-    FizzBuzz.addFilter(Buzz.buzz)
+    FiltersProvider.add(Fizz.fizz)
+    FiltersProvider.add(Buzz.buzz)
     FizzBuzz.addPrinter(DefaultPrinter.print _)
   }
 
   after {
-    FizzBuzz.removeAllFilters()
+    FiltersProvider.removeAll()
     FizzBuzz.removeAllPrinters()
   }
 
@@ -90,7 +90,7 @@ class FizzBuzzKadaiSpec extends FlatSpec with BeforeAndAfter {
     val input = 2
     val expected = "Foo"
     val filter = Foo.foo
-    FizzBuzz.addFilter(filter)
+    FiltersProvider.add(filter)
 
     val actual = FizzBuzz.stringFor(input)
 

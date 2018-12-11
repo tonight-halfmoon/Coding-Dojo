@@ -1,10 +1,15 @@
-val DefaultPrinter = fun(value: List<Any>): String
+val DefaultPrinter = fun(value: Any): String
 {
-	return value.fold("", { acc,
-	it -> when (it)
+	return when(value)
 	{
-		is Int -> acc.plus(it.toString()).plus(" ")
-		is String -> acc.plus(it).plus(" ")
-		else -> acc
-	}}).trim()
+		is List<*> ->
+		value.fold("", { acc, it -> when (it)
+		{
+			is Int -> acc + it.toString() + " "
+			is String -> acc + it + " "
+			else -> acc
+		}}).trim()
+
+		else ->	value.toString()
+	}
 }

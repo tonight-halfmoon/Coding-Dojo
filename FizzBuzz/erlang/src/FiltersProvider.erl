@@ -1,14 +1,11 @@
 -module('FiltersProvider').
 
--export([addFilter/1, numberOfFilters/0, removeAllFilters/0, filters/0]).
+-export([add/1, removeAll/0, filters/0]).
 
-addFilter(Filter) ->
+add(Filter) ->
     'ServiceProvider':add(Filter, ?MODULE).
 
-numberOfFilters() ->
-    'ServiceProvider':count(?MODULE).
-
-removeAllFilters() ->
+removeAll() ->
     'ServiceProvider':removeAll(?MODULE).
 
 filters() ->

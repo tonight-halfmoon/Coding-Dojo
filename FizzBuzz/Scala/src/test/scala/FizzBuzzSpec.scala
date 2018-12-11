@@ -4,19 +4,19 @@ import org.scalatest.BeforeAndAfter
 class FizzBuzzKadaiSpec extends FlatSpec with BeforeAndAfter {
 
   before {
-    FizzBuzz.addFilter(Fizz.fizz)
-    FizzBuzz.addFilter(Buzz.buzz)
-    FizzBuzz.addPrinter(DefaultPrinter.print _)
+    FiltersProvider.add(Fizz.fizz)
+    FiltersProvider.add(Buzz.buzz)
+    PrintersProvider.add(DefaultPrinter.print _)
   }
 
   after {
-    FizzBuzz.removeAllFilters()
-    FizzBuzz.removeAllPrinters()
+    FiltersProvider.removeAll()
+    PrintersProvider.removeAll()
   }
 
   behavior of "`stringFor` when input is less than 1"
-  it should "throw NumberLessThanOneException" in {
-    assertThrows[NumberLessThanOneException] {
+  it should "throw IntegerLessThanOneException" in {
+    assertThrows[IntegerLessThanOneException] {
       val input = 0
 
       FizzBuzz.stringFor(input)
@@ -73,23 +73,12 @@ class FizzBuzzKadaiSpec extends FlatSpec with BeforeAndAfter {
     assert(expected === actual)
   }
 
-  behavior of "`addPrinter`"
-  it should "always increases number of printers by 1" in {
-    val input = CommaSeparatedPrinter.print _
-    FizzBuzz.removeAllPrinters()
-    val expected = 1
-
-    val actual = FizzBuzz.addPrinter(input)
-
-    assert(expected === actual)
-  }
-
   behavior of "`stringFor` given a list of intger and Comma Separated Printer"
   it should "return result as comma separated string" in {
     val input = List(1,2,3,5)
     val expected = "1, 2, Fizz, Buzz"
     val printer = CommaSeparatedPrinter.print _
-    FizzBuzz.addPrinter(printer)
+    PrintersProvider.add(printer)
 
     val actual = FizzBuzz.stringFor(input)
 
@@ -101,7 +90,7 @@ class FizzBuzzKadaiSpec extends FlatSpec with BeforeAndAfter {
     val input = 2
     val expected = "Foo"
     val filter = Foo.foo
-    FizzBuzz.addFilter(filter)
+    FiltersProvider.add(filter)
 
     val actual = FizzBuzz.stringFor(input)
 

@@ -1,23 +1,22 @@
 object FizzBuzz {
 
 	private var filters: MutableList<(Int) -> String> = mutableListOf()
-	private var printers: MutableList<(List<Any>) -> Any> = mutableListOf()
+	private var printers: MutableList<(List<String>) -> String> = mutableListOf()
 
-	fun stringFor(input: List<Any>): Any
+	fun stringFor(input: List<Any>): String
 	{
 		val result = input.map({ when(it)
 		{
 			is Int -> stringFor(it)
-			else -> it
+			else -> ""
 		}})
 		return print(result)
 	}
 
-	fun stringFor(input: Int): Any
+	fun stringFor(input: Int): String
 	{
-		throwInputLessThanOneException(input)
 		val result = process(input)
-		return print(result)
+		return print(listOf(result))
 	}
 
 	fun addFilter(filter: (Int) -> String)
@@ -30,7 +29,7 @@ object FizzBuzz {
 		filters.clear()
 	}
 
-	fun addPrinter(printer: (List<Any>) -> Any)
+	fun addPrinter(printer: (List<String>) -> String)
 	{
 		printers.add(printer)
 	}
@@ -40,12 +39,13 @@ object FizzBuzz {
 		printers.clear()
 	}
 
-	private fun process(input: Int): Any
+	private fun process(input: Int): String
 	{
+		throwInputLessThanOneException(input)
 		val result = applyFilters(input)
 		return when (result.isEmpty())
 		{
-			true -> input
+			true -> input.toString()
 			else -> result
 		}
 	}
@@ -74,14 +74,9 @@ object FizzBuzz {
 		}
 	}
 
-	private fun print(value: List<Any>): Any
+	private fun print(value: List<String>): String
 	{
 		val lastPrinter = printers.last()
 		return lastPrinter(value)
-	}
-
-	private fun print(value: Any): Any
-	{
-		return SimplePrinter(value)
 	}
 }

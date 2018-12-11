@@ -1,10 +1,4 @@
-val CommaSeparatedPrinter = fun(value: List<Any>): String
+val CommaSeparatedPrinter = fun(value: List<String>): String
 {
-	return value.fold("", { acc,
-	it -> when (it)
-	{
-		is Int -> acc.plus(it.toString()).plus(", ")
-		is String -> acc.plus(it).plus(", ")
-		else -> acc
-	}}).trim().trim(',')
+	return value.fold("", { acc,it -> acc.plus(it).plus(", ")}).trim().trim(',')
 }

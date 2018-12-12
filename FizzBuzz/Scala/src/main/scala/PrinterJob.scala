@@ -1,7 +1,6 @@
 object PrinterJob {
 
-  def print(result: Any): Any =
-  {
+  def print(result: Any): Any ={
     val printers = PrintersProvider.all()
     printers match {
       case Nil =>
@@ -11,8 +10,7 @@ object PrinterJob {
     }
   }
 
-  private def printWith(value: Any, printers: List[(Any) => Any]): Any =
-  {
+  private def printWith(value: Any, printers: List[(Any) => Any]): Any = {
     printers.head(value)
   }
 }

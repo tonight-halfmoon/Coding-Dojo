@@ -1,7 +1,6 @@
 object FilterJob {
 
-  def filter(input: Any): Any =
-  {
+  def filter(input: Any): Any = {
     input match {
       case integer: Int =>
         filter(integer)
@@ -12,22 +11,19 @@ object FilterJob {
     }
   }
 
-  private def filter(input: List[Any], result: List[Any]) : Any =
-  {
+  private def filter(input: List[Any], result: List[Any]): Any = {
     input match {
       case Nil =>
         result
       case x::xs =>
-       filter(xs, result :+ filter(x))
+        filter(xs, result :+ filter(x))
     }
   }
 
-  private def filter(input: Int): String =
-  {
+  private def filter(input: Int): String = {
     throwIntegerLessThanOneException(input)
     val result = applyFilters(input)
-    result.isEmpty() match
-    {
+    result.isEmpty() match {
       case true =>
         input.toString
       case _ =>
@@ -35,16 +31,13 @@ object FilterJob {
     }
   }
 
-  private def applyFilters(input: Int): String =
-  {
+  private def applyFilters(input: Int): String = {
     val filters = FiltersProvider.all()
     applyFilters(input, filters.reverse, "")
   }
 
-  private def applyFilters(input: Int, filters: List[(Int) => String], result: String): String =
-  {
-    filters match
-    {
+  private def applyFilters(input: Int, filters: List[(Int) => String], result: String): String = {
+    filters match {
       case Nil =>
         result
       case _ =>
@@ -52,8 +45,7 @@ object FilterJob {
     }
   }
 
-  private def throwIntegerLessThanOneException(input: Int) =
-  {
+  private def throwIntegerLessThanOneException(input: Int) = {
     if (1 > input) {
       throw new IntegerLessThanOneException(input)
     }

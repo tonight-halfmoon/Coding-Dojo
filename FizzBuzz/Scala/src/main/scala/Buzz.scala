@@ -1,3 +1,6 @@
 object Buzz {
-  val buzz = (number: Int) => (0 == number % 5) match {case true => "Buzz" case _ => ""}
+  val buzz = (integer: Int) => Divisible.isMultipleOf(integer, 5) match {
+    case true => "Buzz"
+    case _ => ""
+  }
 }

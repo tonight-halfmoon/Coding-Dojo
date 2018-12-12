@@ -1,3 +1,6 @@
 object Foo {
-  def foo = (number: Int) => (Divisible.isMultipleOf(number, 2)) match {case true => "Foo" case _ => ""}
+  def foo = (integer: Int) => Divisible.isMultipleOf(integer, 2) match {
+    case true => "Foo"
+    case _ => ""
+  }
 }

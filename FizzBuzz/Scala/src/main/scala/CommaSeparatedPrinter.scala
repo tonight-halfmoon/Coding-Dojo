@@ -1,6 +1,5 @@
 object CommaSeparatedPrinter {
-  def print(value: Any): Any =
-  {
+  def print(value: Any): Any = {
     value match {
       case string: String =>
         string

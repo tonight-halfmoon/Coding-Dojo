@@ -1,6 +1,5 @@
 object DefaultPrinter {
-  def print(result: Any): Any =
-  {
+  def print(result: Any): Any = {
     result match {
       case string: String =>
         string

@@ -1,12 +1,8 @@
 object FizzBuzz {
 
-	fun stringFor(input: List<Any>): String
+	fun stringFor(input: List<Int>): String
 	{
-		val result = input.map({ when(it)
-		{
-			is Int -> ProcessJob.process(it)
-			else -> ""
-		}})
+		val result = input.map({ ProcessJob.process(it) })
 		return print(result)
 	}
 

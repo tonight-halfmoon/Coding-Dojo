@@ -1,6 +1,6 @@
-object FilterJob {
+object ProcessJob {
 
-  def filter(input: Any): Any = {
+  def process(input: Any): Any = {
     input match {
       case integer: Int =>
         filter(integer)
@@ -16,7 +16,7 @@ object FilterJob {
       case Nil =>
         result
       case x::xs =>
-        filter(xs, result :+ filter(x))
+        filter(xs, result :+ process(x))
     }
   }
 

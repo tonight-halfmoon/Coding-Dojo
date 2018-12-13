@@ -6,7 +6,7 @@ object FizzBuzz {
   }
 
   private def process(input: Any): Any = {
-    FilterJob.filter(input)
+    ProcessJob.process(input)
   }
 
   private def print(value: Any): Any = {

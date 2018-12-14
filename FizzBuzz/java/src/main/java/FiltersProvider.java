@@ -5,9 +5,9 @@ enum FiltersProvider {
     $;
     private static final List<Filter> filtererList = new ArrayList<Filter>();
 
-    static void addFilter(final Filter filterer) { filtererList.add(filterer); }
+    static void add(final Filter filterer) { filtererList.add(filterer); }
 
-    static void removeAllFilters() { filtererList.clear(); }
+    static void removeAll() { filtererList.clear(); }
 
     static List<Filter> all() {
 	return filtererList;

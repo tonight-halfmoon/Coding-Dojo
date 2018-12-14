@@ -57,7 +57,3 @@ final class FizzBuzz {
 	return applyFilters(integer, matchers, stringForInteger.concat(nextFilter.match(integer)));
     }
 }
-
-interface Filter {
-    String match(final int integer);
-}

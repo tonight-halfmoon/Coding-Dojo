@@ -19,17 +19,18 @@ public class FizzBuzzTests {
   }
   @Test
   public void
-  stringFor_whenIntegerIsNotDivisibleBy3_or5_thenReturnIntegerAsString()
+  stringFor_whenIntegerIsNotDivisibleBy3_or5_thenReturnInputAsString()
       throws Exception {
     final int input = 1;
     final String expected = "1";
 
     final String actual = fizzBuzz.stringFor(input);
+
     assertEquals(expected, actual);
   }
 
   @Test
-  public void stringFor_whenIntegerIsDivisibleBy3_thenReturnFizz()
+  public void stringFor_whenInputIsDivisibleBy3_thenReturnFizz()
       throws Exception {
     final int input = 3;
     final String expected = "Fizz";

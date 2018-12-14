@@ -9,13 +9,13 @@ public class FizzBuzzTests {
 
     @Before
     public void initialize() {
-	fizzBuzz.addMatcher(new Fizz());
-	fizzBuzz.addMatcher(new Buzz());
+	fizzBuzz.addFilter(new Fizz());
+	fizzBuzz.addFilter(new Buzz());
     }
-    
+
     @After
     public void cleanUp() {
-	fizzBuzz.removeAllMatchers();
+	fizzBuzz.removeAllFilters();
     }
     @Test
     public void stringFor_whenIntegerIsNotDivisibleBy3_or5_thenReturnIntegerAsString() throws Exception

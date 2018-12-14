@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 final class FizzBuzz {
 
-    private final List<Matcher> matcherList = new ArrayList<Matcher>();
+    private final List<Filter> matcherList = new ArrayList<Filter>();
 
     private static FizzBuzz fizzBuzz = new FizzBuzz();
 
@@ -19,16 +19,16 @@ final class FizzBuzz {
 	return process(integer);
     }
 
-    void addMatcher(final Matcher matcher)
+    void addFilter(final Filter matcher)
     {
 	matcherList.add(matcher);
     }
 
-    void removeAllMatchers()
+    void removeAllFilters()
     {
 	matcherList.clear();
     }
-    
+
     private void throwIntegerLessThanOneException(final int integer) throws Exception
     {
 	if(1 > integer)
@@ -39,7 +39,7 @@ final class FizzBuzz {
 
     private String process(final int integer)
     {
-	final String stringForInteger = applyMatchers(integer, matcherList, "");
+	final String stringForInteger = applyFilters(integer, matcherList, "");
 	if (stringForInteger.isEmpty())
 	    {
 		return String.valueOf(integer);
@@ -47,17 +47,17 @@ final class FizzBuzz {
 	return stringForInteger;
     }
 
-    private String applyMatchers(final int integer, final List<Matcher> matchers, String stringForInteger)
+    private String applyFilters(final int integer, final List<Filter> matchers, String stringForInteger)
     {
 	if(matchers.size() == 0)
 	    {
 		return stringForInteger;
 	    }
-	final Matcher nextMatcher = matchers.remove(0);
-	return applyMatchers(integer, matchers, stringForInteger.concat(nextMatcher.match(integer)));
+	final Filter nextFilter = matchers.remove(0);
+	return applyFilters(integer, matchers, stringForInteger.concat(nextFilter.match(integer)));
     }
 }
 
-interface Matcher {
+interface Filter {
     String match(final int integer);
 }

@@ -3,33 +3,33 @@ import java.util.List;
 enum ProcessJob {
   $;
 
-  static String process(final int integer) throws Exception {
-    throwIntegerLessThanOneException(integer);
+  static String process(final int input) throws Exception {
+    throwInputLessThanOneException(input);
     final List<Filter> filters = FiltersProvider.all();
-    final String stringForInteger = applyFilters(integer, filters, "");
-    if (stringForInteger.isEmpty()) {
-      return String.valueOf(integer);
+    final String result = applyFilters(input, filters, "");
+    if (result.isEmpty()) {
+      return String.valueOf(input);
     }
-    return stringForInteger;
+    return result;
   }
 
-  private static String applyFilters(final int integer,
+  private static String applyFilters(final int input,
                                      final List<Filter> filterers,
-                                     String stringForInteger) {
+                                     String result) {
     if (filterers.size() == 0) {
-      return stringForInteger;
+      return result;
     }
     final Filter nextFilter = filterers.remove(0);
-    return applyFilters(integer, filterers,
-                        stringForInteger.concat(nextFilter.filter(integer)));
+    return applyFilters(input, filterers,
+                        result.concat(nextFilter.filter(input)));
   }
 
-  private static void throwIntegerLessThanOneException(final int integer)
+  private static void throwInputLessThanOneException(final int input)
       throws Exception {
-    if (1 > integer) {
+    if (1 > input) {
       throw new Exception(
-          "Expected integer to be greater than 0, but found ".concat(
-              String.valueOf(integer)));
+          "Expected input to be greater than 0, but found ".concat(
+              String.valueOf(input)));
     }
   }
 }

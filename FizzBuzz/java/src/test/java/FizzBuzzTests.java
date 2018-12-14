@@ -9,13 +9,13 @@ public class FizzBuzzTests {
 
   @Before
   public void initialize() {
-    fizzBuzz.addFilter(new Fizz());
-    fizzBuzz.addFilter(new Buzz());
+    FiltersProvider.addFilter(new Fizz());
+    FiltersProvider.addFilter(new Buzz());
   }
 
   @After
   public void cleanUp() {
-    fizzBuzz.removeAllFilters();
+      FiltersProvider.removeAllFilters();
   }
   @Test
   public void

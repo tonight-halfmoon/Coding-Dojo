@@ -1,5 +1,4 @@
 import java.util.List;
-import java.util.ArrayList;
 
 final class FizzBuzz {
 
@@ -24,7 +23,7 @@ final class FizzBuzz {
   }
 
   private String process(final int integer) {
-    List<Filter> filters = FiltersProvider.all();
+    final List<Filter> filters = FiltersProvider.all();
     final String stringForInteger = applyFilters(integer, filters, "");
     if (stringForInteger.isEmpty()) {
       return String.valueOf(integer);

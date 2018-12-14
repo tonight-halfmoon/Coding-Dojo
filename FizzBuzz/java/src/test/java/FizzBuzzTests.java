@@ -17,6 +17,7 @@ public class FizzBuzzTests {
   public void cleanUp() {
       FiltersProvider.removeAll();
   }
+
   @Test
   public void
   stringFor_whenIntegerIsNotDivisibleBy3_or5_thenReturnInputAsString()

@@ -1,3 +1,3 @@
 interface Filter {
-  String match(final int integer);
+  String filter(final int integer);
 }

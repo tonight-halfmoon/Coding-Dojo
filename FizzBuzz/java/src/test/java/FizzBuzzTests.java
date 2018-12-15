@@ -73,7 +73,7 @@ public class FizzBuzzTests {
     fizzBuzz.stringFor(input);
   }
 
-    /*@Test
+  @Test
   public void stringFor_givenListOfInteger_thenReturnResultAsWhiteSpaceSeparatedString()
       throws Exception {
     final int [] input = new int [] {1,3,5,7,15};
@@ -82,9 +82,9 @@ public class FizzBuzzTests {
     final String actual = fizzBuzz.stringFor(input);
 
     assertEquals(expected, actual);
-    }*/
+  }
 
-  @Test
+    /*@Test
   public void stringFor_givenListOfInteger_thenReturnResultAsListOfString()
       throws Exception {
     final int [] input = new int [] {1,3,5,7,15};
@@ -93,5 +93,5 @@ public class FizzBuzzTests {
     final List<String> actual = fizzBuzz.stringFor(input);
 
     assertEquals(expected, actual);
-  }
+    }*/
 }

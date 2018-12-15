@@ -6,12 +6,17 @@ final class FizzBuzz {
     return process(integer);
   }
 
-  List<String> stringFor(final int [] input) throws Exception {
-      return ProcessListJob.process(input);
+  String stringFor(final int [] input) throws Exception {
+     List<String> result = ProcessListJob.process(input);
+     return print(result);
   }
 
   private String process(final int integer) throws Exception {
     return ProcessJob.process(integer);
+  }
+
+  private String print(List<String> list) {
+      return String.join(" ", list);
   }
 
   private static FizzBuzz fizzBuzz = new FizzBuzz();

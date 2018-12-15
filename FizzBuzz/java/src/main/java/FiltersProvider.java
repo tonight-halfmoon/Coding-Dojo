@@ -10,6 +10,6 @@ enum FiltersProvider {
     static void removeAll() { filtererList.clear(); }
 
     static List<Filter> all() {
-	return filtererList;
+	return new ArrayList(filtererList);
     }
 }

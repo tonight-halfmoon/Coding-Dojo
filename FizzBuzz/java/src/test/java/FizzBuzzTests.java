@@ -3,6 +3,9 @@ import org.junit.After;
 import org.junit.Before;
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class FizzBuzzTests {
 
   private final FizzBuzz fizzBuzz = FizzBuzz.getInstance();
@@ -68,5 +71,27 @@ public class FizzBuzzTests {
     final int input = 0;
 
     fizzBuzz.stringFor(input);
+  }
+
+    /*@Test
+  public void stringFor_givenListOfInteger_thenReturnResultAsWhiteSpaceSeparatedString()
+      throws Exception {
+    final int [] input = new int [] {1,3,5,7,15};
+    final String expected = "1 Fizz Buzz 7 FizzBuzz";
+
+    final String actual = fizzBuzz.stringFor(input);
+
+    assertEquals(expected, actual);
+    }*/
+
+  @Test
+  public void stringFor_givenListOfInteger_thenReturnResultAsListOfString()
+      throws Exception {
+    final int [] input = new int [] {1,3,5,7,15};
+    final List<String> expected = Arrays.asList(new String [] {"1", "Fizz", "Buzz", "7", "FizzBuzz"});
+
+    final List<String> actual = fizzBuzz.stringFor(input);
+
+    assertEquals(expected, actual);
   }
 }

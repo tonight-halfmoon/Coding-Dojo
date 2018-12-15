@@ -7,7 +7,7 @@ final class FizzBuzz {
   }
 
   String stringFor(final int [] input) throws Exception {
-     List<String> result = ProcessListJob.process(input);
+     final List<String> result = ProcessListJob.process(input);
      return print(result);
   }
 
@@ -15,8 +15,8 @@ final class FizzBuzz {
     return ProcessJob.process(integer);
   }
 
-  private String print(List<String> list) {
-      return String.join(" ", list);
+  private String print(final List<String> list) {
+      return PrinterJob.print(list);
   }
 
   private static FizzBuzz fizzBuzz = new FizzBuzz();

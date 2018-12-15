@@ -19,8 +19,7 @@ public class FizzBuzzTests {
   }
 
   @Test
-  public void
-  stringFor_whenIntegerIsNotDivisibleBy3_or5_thenReturnInputAsString()
+  public void stringFor_whenInputNotDivisibleBy3_or5_thenReturnInputAsString()
       throws Exception {
     final int input = 1;
     final String expected = "1";
@@ -31,7 +30,7 @@ public class FizzBuzzTests {
   }
 
   @Test
-  public void stringFor_whenInputIsDivisibleBy3_thenReturnFizz()
+  public void stringFor_whenInputDivisibleBy3_thenReturnFizz()
       throws Exception {
     final int input = 3;
     final String expected = "Fizz";
@@ -42,7 +41,7 @@ public class FizzBuzzTests {
   }
 
   @Test
-  public void stringFor_whenInputIsDivisibleBy5_thenReturnBuzz()
+  public void stringFor_whenInputDivisibleBy5_thenReturnBuzz()
       throws Exception {
     final int input = 5;
     final String expected = "Buzz";
@@ -53,7 +52,7 @@ public class FizzBuzzTests {
   }
 
   @Test
-  public void stringFor_whenInputIsDivisibleBy3_and5_thenReturnFizzBuzz()
+  public void stringFor_whenInputDivisibleBy3_and5_thenReturnFizzBuzz()
       throws Exception {
     final int input = 15;
     final String expected = "FizzBuzz";
@@ -64,7 +63,7 @@ public class FizzBuzzTests {
   }
 
   @Test(expected = Exception.class)
-  public void fb_when_number_less_than_1_then_throw_exception()
+  public void stringFor_whenInputLessThan1_thenThrowException()
       throws Exception {
     final int input = 0;
 

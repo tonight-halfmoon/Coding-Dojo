@@ -16,6 +16,7 @@ public class FizzBuzzTests {
   @After
   public void cleanUp() {
       FiltersProvider.removeAll();
+      PrintersProvider.removeAll();
   }
 
   @Test
@@ -71,24 +72,26 @@ public class FizzBuzzTests {
   }
 
   @Test
-  public void stringFor_givenListOfInteger_thenReturnResultAsWhiteSpaceSeparatedString()
+  public void stringFor_givenListOfInteger_andDefaultPrinter_thenReturnResultAsWhiteSpaceSeparatedString()
       throws Exception {
     final int [] input = new int [] {1,3,5,7,15};
     final String expected = "1 Fizz Buzz 7 FizzBuzz";
+    PrintersProvider.add(DefaultPrinter.getInstance());
 
     final String actual = fizzBuzz.stringFor(input);
 
     assertEquals(expected, actual);
   }
 
-    /*@Test
-  public void stringFor_givenListOfInteger_thenReturnResultAsListOfString()
+  @Test
+  public void stringFor_givenListOfInteger_andCommaSeparatedPrinter_thenReturnResultAsListOfString()
       throws Exception {
     final int [] input = new int [] {1,3,5,7,15};
-    final List<String> expected = Arrays.asList(new String [] {"1", "Fizz", "Buzz", "7", "FizzBuzz"});
+    final String expected = "1, Fizz, Buzz, 7, FizzBuzz";
+    PrintersProvider.add(CommaSeparatedPrinter.getInstance());
 
-    final List<String> actual = fizzBuzz.stringFor(input);
+    final String actual = fizzBuzz.stringFor(input);
 
     assertEquals(expected, actual);
-    }*/
+  }
 }

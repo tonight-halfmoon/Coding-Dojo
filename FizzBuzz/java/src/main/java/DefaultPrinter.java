@@ -9,7 +9,7 @@ final class DefaultPrinter implements Printer {
 
   private DefaultPrinter() {}
 
-  private static DefaultPrinter instance = new DefaultPrinter();
+  private static final DefaultPrinter instance = new DefaultPrinter();
 
   public static DefaultPrinter getInstance() { return instance; }
 }

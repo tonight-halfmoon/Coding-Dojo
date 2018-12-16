@@ -10,7 +10,7 @@ public class FizzBuzzTests {
   @Before
   public void initialize() {
       FiltersProvider.add(Fizz.getInstance());
-      FiltersProvider.add(new Buzz());
+      FiltersProvider.add(Buzz.getInstance());
   }
 
   @After
@@ -126,4 +126,12 @@ public class FizzBuzzTests {
       assertEquals(filterFizz1, filterFizz2);
   }
 
+  @Test
+  public void newFilterBuzz_ExcatlyOnlyOneInstanceInJVM_canBeInstantiated()
+  {
+      final Filter filterBuzz1 = Buzz.getInstance();
+      final Filter filterBuzz2 = Buzz.getInstance();
+
+      assertEquals(filterBuzz1, filterBuzz2);
+  }
 }

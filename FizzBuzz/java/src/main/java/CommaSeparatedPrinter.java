@@ -9,7 +9,7 @@ final class CommaSeparatedPrinter implements Printer {
 
   private CommaSeparatedPrinter() {}
 
-  private static CommaSeparatedPrinter instance = new CommaSeparatedPrinter();
+  private static final CommaSeparatedPrinter instance = new CommaSeparatedPrinter();
 
   public static CommaSeparatedPrinter getInstance() { return instance; }
 }

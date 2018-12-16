@@ -1,9 +1,11 @@
 import java.util.List;
+import java.util.Arrays;
 
 final class FizzBuzz {
 
   String stringFor(final int integer) throws Exception {
-    return process(integer);
+    final String result = process(integer);
+    return print(Arrays.asList(new String [] {result}));
   }
 
   String stringFor(final int [] input) throws Exception {

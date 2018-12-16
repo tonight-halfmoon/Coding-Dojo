@@ -84,7 +84,7 @@ public class FizzBuzzTests {
   }
 
   @Test
-  public void stringFor_givenListOfInteger_andCommaSeparatedPrinter_thenReturnResultAsListOfString()
+  public void stringFor_givenListOfInteger_andCommaSeparatedPrinter_thenReturnResultAsCommaSeparatedString()
       throws Exception {
     final int [] input = new int [] {1,3,5,7,15};
     final String expected = "1, Fizz, Buzz, 7, FizzBuzz";

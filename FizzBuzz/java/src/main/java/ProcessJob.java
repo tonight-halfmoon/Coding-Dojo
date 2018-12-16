@@ -4,7 +4,7 @@ enum ProcessJob {
   $;
 
   static String process(final int input) throws Exception {
-    throwInputLessThanOneException(input);
+    throwIntegerLessThanOneException(input);
     final List<Filter> filters = FiltersProvider.all();
     final String result = applyFilters(input, filters, "");
     if (result.isEmpty()) {
@@ -24,12 +24,10 @@ enum ProcessJob {
 			result.concat(nextFilter.filter(input)));
   }
 
-  private static void throwInputLessThanOneException(final int input)
+  private static void throwIntegerLessThanOneException(final int input)
       throws Exception {
     if (1 > input) {
-      throw new Exception(
-	  "Expected input to be greater than 0, but found ".concat(
-	      String.valueOf(input)));
+	throw new IntegerLessThanOneException(input);
     }
   }
 }

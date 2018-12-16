@@ -11,7 +11,7 @@ enum PrinterJob {
       if(value instanceof String) {
 	  return (String) value;
       }
-      throw new RuntimeException("Unexpected value type: ".concat(value.getClass().toString()));
+      throw new UnexpectedObjectTypeException(value);
   }
 
   static String print(final List<String> list) {

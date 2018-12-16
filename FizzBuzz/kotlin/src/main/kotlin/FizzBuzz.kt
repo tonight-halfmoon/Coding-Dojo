@@ -1,15 +1,14 @@
 object FizzBuzz {
 
-	fun stringFor(input: List<Int>): String
+	fun stringFor(input: Any): String
 	{
-		val result = input.map({ ProcessJob.process(it) })
+		val result = process(input)
 		return print(result)
 	}
 
-	fun stringFor(input: Int): String
+	private fun process(input: Any): List<String>
 	{
-		val result = ProcessJob.process(input)
-		return print(listOf(result))
+		return ProcessJob.process(input)
 	}
 
 	private fun print(value: List<String>): String

@@ -1,5 +1,20 @@
 object ProcessJob {
-	fun process(input: Int): String
+
+	fun process(input: Any): List<String>
+	{
+		return when (input) {
+			is List<*> -> process(input as List<Int>)
+			is Int -> listOf(process (input as Int))
+			else -> listOf()
+		}
+	}
+
+	private fun process(input: List<Int>): List<String>
+	{
+		return input.map({ process(it) })
+	}
+
+	private fun process(input: Int): String
 	{
 		throwInputLessThanOneException(input)
 		val result = applyFilters(input)

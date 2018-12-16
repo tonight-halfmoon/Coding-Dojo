@@ -1,7 +1,18 @@
 import java.util.List;
+import java.util.Arrays;
 
 enum PrinterJob {
   $;
+
+  static String print(final Object value) {
+      if (value instanceof List<?>) {
+	  return print((List<String>) value);
+      }
+      if(value instanceof String) {
+	  return (String) value;
+      }
+      throw new RuntimeException("Unexpected value type: ".concat(value.getClass().toString()));
+  }
 
   static String print(final List<String> list) {
       final List<Printer> printers = PrintersProvider.all();

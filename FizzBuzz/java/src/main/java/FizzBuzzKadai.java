@@ -1,11 +1,10 @@
 import java.util.List;
-import java.util.Arrays;
 
 final class FizzBuzz {
 
   String stringFor(final int integer) throws Exception {
     final String result = process(integer);
-    return print(Arrays.asList(new String [] {result}));
+    return print(result);
   }
 
   String stringFor(final int [] input) throws Exception {
@@ -17,8 +16,8 @@ final class FizzBuzz {
     return ProcessJob.process(integer);
   }
 
-  private String print(final List<String> list) {
-      return PrinterJob.print(list);
+  private String print(final Object value) {
+      return PrinterJob.print(value);
   }
 
   private static FizzBuzz fizzBuzz = new FizzBuzz();

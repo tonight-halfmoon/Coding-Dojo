@@ -1,13 +1,8 @@
 final class FizzBuzz {
 
-  String stringFor(final int input) throws Exception {
+  String stringFor(final Object input) throws Exception {
     final Object result = process(input);
     return print(result);
-  }
-
-  String stringFor(final int [] input) throws Exception {
-     final Object result = process(input);
-     return print(result);
   }
 
   private Object process(final Object input) throws Exception {

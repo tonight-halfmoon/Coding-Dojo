@@ -94,4 +94,17 @@ public class FizzBuzzTests {
 
     assertEquals(expected, actual);
   }
+
+  @Test
+  public void stringFor_whenInputIsDivisibleBy2_thenReturnFoo()
+      throws Exception {
+      final int input = 2;
+      final String expected = "Foo";
+      final Filter filter = Foo.getInstance();
+      FiltersProvider.add(filter);
+
+      final String actual = fizzBuzz.stringFor(input);
+
+      assertEquals(expected, actual);
+  }
 }

@@ -1,17 +1,17 @@
 final class FizzBuzz {
 
-  String stringFor(final int integer) throws Exception {
-    final Object result = process(integer);
+  String stringFor(final int input) throws Exception {
+    final Object result = process(input);
     return print(result);
   }
 
   String stringFor(final int [] input) throws Exception {
-     final Object result = ProcessListJob.process(input);
+     final Object result = process(input);
      return print(result);
   }
 
-  private String process(final int integer) throws Exception {
-    return ProcessJob.process(integer);
+  private Object process(final Object input) throws Exception {
+    return ProcessObjectJob.process(input);
   }
 
   private String print(final Object value) {

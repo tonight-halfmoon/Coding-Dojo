@@ -41,7 +41,7 @@ Examples: Languages choices are German, Japanese and Arabic
 Examples: Language chosen is Japanese, Input: 130, Result: "hyaku san-ju"
 ```
 
-[hyaku](https://japan-cc.com/images/knmhyaku.gif)
+![alt text](https://japan-cc.com/images/knmhyaku.gif)
 ![alt text](https://japan-cc.com/images/knm3.gif)
 ![alt text](https://japan-cc.com/images/knm10.gif)
 

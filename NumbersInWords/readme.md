@@ -26,11 +26,9 @@ Examples: Languages choices are German, Japanese and Arabic
 ```
 ```
 Examples: Language chosen is Japanese, Input: 130, Result: "hyaku san-ju"
-<P><IMG SRC="https://japan-cc.com/images/knmhyaku.gif" border=0 hspace=5 vspace=5>
-<P>100 (<I>hyaku</I>)
-<P><IMG SRC="https://japan-cc.com/images/knm3.gif" border=0 hspace=5 vspace=5>
-<P><IMG SRC="https://japan-cc.com/images/knm10.gif" border=0 hspace=5 vspace=5>
-<P>30 (<I>san-ju</I>)
+[hyaku](https://japan-cc.com/images/knmhyaku.gif)
+[san](https://japan-cc.com/images/knm3.gif) [ju](https://japan-cc.com/images/knm10.gif)
+
 1. Client needs to be able to send the result as Json string as payload of some REST API
 ```
 Example: {"AmountInnumbers": 342, "Currency": "USD", "NumbersInWords": "Three Hundred and Fourty Two"}

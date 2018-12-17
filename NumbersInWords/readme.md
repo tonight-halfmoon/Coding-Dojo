@@ -47,7 +47,7 @@ Examples: Language chosen is Japanese, Input: 130, Result: "hyaku san-ju"
 ![alt text](https://japan-cc.com/images/knm10.gif)
 
 
-- Client needs to be able to send the result as Json string as payload of some REST API
+- Clients do need to be able to send the result as Json string as payload of some REST API
 
 ```
 Example: {"AmountInnumbers": 342, "Currency": "USD", "NumbersInWords": "Three Hundred and Fourty Two"}

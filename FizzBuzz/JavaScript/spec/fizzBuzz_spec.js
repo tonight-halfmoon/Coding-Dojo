@@ -1,5 +1,5 @@
-describe(' stringFor', function() {
-    it (' when input is processed then return input', function() {
+describe('stringFor', function() {
+    it ('when input is processed then return input', function() {
 	var input = 1;
 	var expected = 1;
 

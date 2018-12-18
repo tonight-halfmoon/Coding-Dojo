@@ -1,7 +1,7 @@
 describe('stringFor', function() {
-    it ('when input is processed then return input', function() {
+    it ('when input is processed then return input as String', function() {
 	var input = 1;
-	var expected = 1;
+	var expected = '1';
 
 	var actual = fizzBuzz.stringFor(input);
 

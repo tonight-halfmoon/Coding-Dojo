@@ -1,7 +1,7 @@
 class FizzBuzz {
 
     stringFor(input) {
-	return input;
+	return input.toString();
     }
 };
 module.exports = FizzBuzz;

@@ -15,6 +15,15 @@ describe('stringFor', function() {
 
 	expect(actualFun).toThrow();
     });
+
+    it('´stringFor´ when input is divisible by 3, then return ´Fizz´', function(){
+	const input = 3;
+	const expected = "Fizz";
+
+	const actual = fizzBuzz.stringFor(input);
+
+	expect(actual).toEqual(expected);
+    });
 });
 
 const FizzBuzz = require('../index.js').fizzbuzz;

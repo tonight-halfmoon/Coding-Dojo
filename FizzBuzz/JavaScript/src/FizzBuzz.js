@@ -2,16 +2,12 @@ class FizzBuzz {
 
     stringFor(input) {
 	this.throwIntegerLessThanOneException(input);
-	const result = this.fizz(input);
+	const result = fizz(input);
 	if(result)
 	{
 	    return result;
 	}
 	return input.toString();
-    }
-
-    fizz(input) {
-	return 0 === input % 3 ? "Fizz": "";
     }
 
     throwIntegerLessThanOneException(input) {
@@ -20,5 +16,9 @@ class FizzBuzz {
 	}
     }
 };
+
+const fizz = function(input) {
+    return 0 === input % 3 ? "Fizz": "";
+}
 
 module.exports = FizzBuzz;

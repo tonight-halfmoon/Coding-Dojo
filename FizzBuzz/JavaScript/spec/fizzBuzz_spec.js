@@ -18,7 +18,7 @@ describe('stringFor', function() {
 
     it('´stringFor´ when input is divisible by 3, then return ´Fizz´', function(){
 	const input = 3;
-	const expected = "Fizz";
+	const expected = 'Fizz';
 
 	const actual = fizzBuzz.stringFor(input);
 

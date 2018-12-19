@@ -33,6 +33,20 @@ describe('stringFor', function() {
 
 	expect(actual).toEqual(expected);
     });
+
+    it('´removeAllFilters´ always remove all available filters', function() {
+	fizzBuzz.removeAllFilters();
+	const inputFilter1 = () => "filter1";
+	const inputFilter2 = () => "filter2";
+	fizzBuzz.addFilter(inputFilter1);
+	const currentSize = fizzBuzz.addFilter(inputFilter2);
+	expect(currentSize).toEqual(2);
+	const expected = 0;
+
+	const actual = fizzBuzz.removeAllFilters();
+
+	expect(actual).toEqual(expected);
+    });
 });
 
 const FizzBuzz = require('../index.js').fizzbuzz;

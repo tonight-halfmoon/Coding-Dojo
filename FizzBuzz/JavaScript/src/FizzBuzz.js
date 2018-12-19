@@ -17,6 +17,11 @@ class FizzBuzz {
 	return filters.size;
     }
 
+     removeAllFilters() {
+	 filters.clear();
+	 return filters.size;
+    }
+
     throwIntegerLessThanOneException(input) {
 	if (1 > input) {
 	    throw new IntegerLessThanOneException(input);

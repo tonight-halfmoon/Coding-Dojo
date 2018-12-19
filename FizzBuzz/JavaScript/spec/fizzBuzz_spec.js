@@ -7,6 +7,14 @@ describe('stringFor', function() {
 
 	expect(actual).toEqual(expected);
     });
+
+    it('when input is less than one then throw IntegerLessThanOneException', function() {
+	var input = 0;
+
+	var actualFun = function(){ fizzBuzz.stringFor(input)};
+
+	expect(actualFun).toThrow();
+    });
 });
 
 const FizzBuzz = require('../index.js').fizzbuzz;

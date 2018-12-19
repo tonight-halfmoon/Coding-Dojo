@@ -12,6 +12,11 @@ class FizzBuzz {
 	return input.toString();
     }
 
+    addFilter(filter) {
+	addFilter(filter);
+	return filters.size;
+    }
+
     throwIntegerLessThanOneException(input) {
 	if (1 > input) {
 	    throw new IntegerLessThanOneException(input);
@@ -21,6 +26,12 @@ class FizzBuzz {
 
 const fizz = (input) => {
     return 0 === input % 3 ? "Fizz": "";
+};
+
+const filters = new Set();
+
+const addFilter = (filter) => {
+    filters.add(filter);
 };
 
 module.exports = FizzBuzz;

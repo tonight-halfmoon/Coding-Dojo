@@ -24,6 +24,15 @@ describe('stringFor', function() {
 
 	expect(actual).toEqual(expected);
     });
+
+    it('´addFilter´ always increase number of filters by one', function() {
+	const input = () => "Filter";
+	const expected = 1;
+
+	const actual = fizzBuzz.addFilter(input);
+
+	expect(actual).toEqual(expected);
+    });
 });
 
 const FizzBuzz = require('../index.js').fizzbuzz;

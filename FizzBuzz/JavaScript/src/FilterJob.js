@@ -3,8 +3,7 @@ const filtersProvider = require('./FiltersProvider').filtersProvider
 filterFun = (input) => {
     throwIntegerLessThanOneException(input)
     const filters = filtersProvider.all()
-    const result = applyFilters(input, filters, new Set())
-    return Array.from(result).join(' ')
+    return applyFilters(input, filters, new Set())
 }
 
 applyFilters = (input, filters, result) => {

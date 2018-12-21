@@ -12,11 +12,12 @@ class FizzBuzz {
     }
 
     print(input, result) {
-	if('' === result)
+	const resultAsString = Array.from(result).join(' ').trim(' ')
+	if('' === resultAsString)
 	{
 	    return input.toString()
 	}
-	return result
+	return resultAsString
     }
 }
 

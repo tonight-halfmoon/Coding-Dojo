@@ -8,7 +8,6 @@ class FizzBuzz {
     }
 
     process(input) {
-	this.throwIntegerLessThanOneException(input)
 	return filterJob.process(input)
     }
 
@@ -18,12 +17,6 @@ class FizzBuzz {
 	    return input.toString()
 	}
 	return result
-    }
-
-    throwIntegerLessThanOneException(input) {
-	if (1 > input) {
-	    throw new IntegerLessThanOneException(input)
-	}
     }
 }
 

@@ -1,6 +1,7 @@
 const filtersProvider = require('./FiltersProvider').filtersProvider
 
 filterFun = (input) => {
+    throwIntegerLessThanOneException(input)
     const filters = filtersProvider.all()
     const result = applyFilters(input, filters, new Set())
     return Array.from(result).join(' ')
@@ -16,6 +17,12 @@ applyFilters = (input, filters, result) => {
     result.add(partAnswer)
     filters.delete(nextFilter)
     return applyFilters(input, filters, result)
+}
+
+throwIntegerLessThanOneException = (input) => {
+    if (1 > input) {
+	throw new IntegerLessThanOneException(input)
+    }
 }
 
 module.exports = { filterJob: {  process: filterFun } }

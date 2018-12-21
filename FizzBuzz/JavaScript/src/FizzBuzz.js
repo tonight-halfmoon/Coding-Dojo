@@ -1,11 +1,23 @@
-const fizz = require('./Fizz').FizzFilter
+let filterJob = require('./FilterJob').filterJob
 
 class FizzBuzz {
 
     stringFor(input) {
+	const result = this.process(input)
+	return this.print(input, result)
+    }
+
+    process(input) {
 	this.throwIntegerLessThanOneException(input)
-	const result = fizz(input)
-	return print(input, result)
+	return filterJob.process(input)
+    }
+
+    print(input, result) {
+	if('' === result)
+	{
+	    return input.toString()
+	}
+	return result
     }
 
     throwIntegerLessThanOneException(input) {
@@ -13,14 +25,6 @@ class FizzBuzz {
 	    throw new IntegerLessThanOneException(input)
 	}
     }
-}
-
-const print = (input, result) => {
-    if('' === result)
-    {
-	return input.toString()
-    }
-    return result
 }
 
 module.exports = { fizzBuzz: new FizzBuzz() }

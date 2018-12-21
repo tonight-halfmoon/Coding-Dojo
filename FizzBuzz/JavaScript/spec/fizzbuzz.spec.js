@@ -1,7 +1,17 @@
 const fizzBuzz = require('../src/index').fizzbuzz
 const filtersProvider = require('../src/index').filtersProvider
+const fizz = require('../src/index').fizzFilter
 
 describe('stringFor', function() {
+
+    beforeEach(function() {
+	filtersProvider.add(fizz)
+    })
+
+    afterEach(function() {
+	filtersProvider.removeAll()
+    })
+
     it ('`stringFor` when input is processed, then return input as String', function() {
 	const input = 1
 	const expected = '1'

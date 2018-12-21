@@ -1,4 +1,5 @@
 module.exports = {
     fizzbuzz: require('./FizzBuzz').fizzBuzz,
-    filtersProvider: require('./FiltersProvider').filtersProvider
+    filtersProvider: require('./FiltersProvider').filtersProvider,
+    fizzFilter: require('./Fizz').fizzFilter
 }

@@ -1,3 +1,5 @@
+const filtersProvider = require('../src/index').filtersProvider
+
 describe("FiltersProvider", function() {
   it("´add´ always increase number of filters by one", function() {
     const input = () => "Filter";
@@ -22,6 +24,3 @@ describe("FiltersProvider", function() {
     expect(actual).toEqual(expected);
   });
 });
-
-const FiltersProvider = require("../index.js").filtersProvider;
-const filtersProvider = new FiltersProvider();

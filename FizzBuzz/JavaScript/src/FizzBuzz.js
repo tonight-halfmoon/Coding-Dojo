@@ -1,3 +1,5 @@
+const fizz = require('./Fizz').FizzFilter
+
 class FizzBuzz {
 
     stringFor(input) {
@@ -21,9 +23,5 @@ const print = (input, result) => {
     return result
 }
 
-const fizz = (input) => {
-    return 0 === input % 3 ? "Fizz": ""
-};
-
-
 module.exports = { fizzBuzz: new FizzBuzz() }
+

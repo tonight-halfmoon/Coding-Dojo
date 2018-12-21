@@ -5,15 +5,15 @@ class FizzBuzz {
 
     stringFor(input) {
 	const result = this.process(input)
-	return this.print(input, result)
+	return this.print(result)
     }
 
     process(input) {
 	return filterJob.process(input)
     }
 
-    print(input, result) {
-	return printerJob.process(input, result)
+    print(result) {
+	return printerJob.process(result)
     }
 }
 

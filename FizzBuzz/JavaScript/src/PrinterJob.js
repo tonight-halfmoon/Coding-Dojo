@@ -1,10 +1,9 @@
-printFun = (input, result) => {
-    const resultAsString = Array.from(result).join(' ').trim(' ')
-    if('' === resultAsString)
-    {
-	return input.toString()
+printFun = (result) => {
+    if(result instanceof Array) {
+	const resultAsString = Array.from(result).join(' ').trim(' ')
+	return resultAsString
     }
-    return resultAsString
+    return result
 }
 
 module.exports = {printerJob: { process: printFun } }

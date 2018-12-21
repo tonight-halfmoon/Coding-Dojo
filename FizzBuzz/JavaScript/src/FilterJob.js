@@ -2,8 +2,15 @@ const filtersProvider = require('./FiltersProvider').filtersProvider
 
 filterFun = (input) => {
     throwIntegerLessThanOneException(input)
-    const filters = filtersProvider.all()
-    return applyFilters(input, filters, new Set())
+    return tt(input)
+}
+
+tt = (input) => {
+    const result = applyFilters(input, filtersProvider.all(), '')
+    if ('' === result.trim()) {
+	return input.toString()
+    }
+    return result
 }
 
 applyFilters = (input, filters, result) => {
@@ -13,9 +20,8 @@ applyFilters = (input, filters, result) => {
     }
     const nextFilter = filters[Symbol.iterator]().next().value
     const partAnswer = nextFilter(input)
-    result.add(partAnswer)
     filters.delete(nextFilter)
-    return applyFilters(input, filters, result)
+    return applyFilters(input, filters, result.concat(partAnswer))
 }
 
 throwIntegerLessThanOneException = (input) => {

@@ -37,4 +37,16 @@ describe('stringFor', function() {
 
 	expect(actual).toEqual(expected)
     })
+
+    it('´stringFor´ when input is divisible by 5, then return ´Buzz´', function(){
+	const input = 5
+	const expected = 'Buzz'
+	const buzzFilter = (input) => {return 0 === input % 5 ? 'Buzz': ''}
+	filtersProvider.add(buzzFilter)
+
+	const actual = fizzBuzz.stringFor(input)
+
+	expect(actual).toEqual(expected)
+    })
+
 })

@@ -2,7 +2,7 @@ const filters = new Set()
 
 class FiltersProvider {
     add(filter) {
-	addFilter(filter)
+	filters.add(filter)
 	return filters.size
     }
 
@@ -10,10 +10,10 @@ class FiltersProvider {
 	 filters.clear()
 	 return filters.size
     }
-}
-
-const addFilter = (filter) => {
-    filters.add(filter)
+    
+    all() {
+	return filters
+    }
 }
 
 module.exports = { filtersProvider: new FiltersProvider() }

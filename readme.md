@@ -1,6 +1,7 @@
 # Coding Dojo
 ## Kadai 
 ## TDD
+## BDD
 ## SOLID design principles
 While the implementation evolves towards addressing the problem, SOLID design principles are pursued as possible. Thus, we use such kata to train on good daily programming habit.
 

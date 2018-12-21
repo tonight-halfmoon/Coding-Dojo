@@ -1,6 +1,9 @@
+const printersProvider = require('./PrintersProvider').printersProvider
+
 printFun = (result) => {
     if(result instanceof Array) {
-	const resultAsString = Array.from(result).join(' ').trim(' ')
+	const printer = printersProvider.available()
+	const resultAsString = Array.from(result).join(printer()).trim(' ')
 	return resultAsString
     }
     return result

@@ -1,6 +1,8 @@
 const fizzBuzz = require('../src/index').fizzbuzz
 const filtersProvider = require('../src/index').filtersProvider
 const fizz = require('../src/index').fizzFilter
+const printersProvider = require('../src/index').printersProvider
+const commaSeparatedPrinter = require('../src/CommaSeparatedPrinter').printer
 
 describe('stringFor', function() {
 
@@ -59,4 +61,17 @@ describe('stringFor', function() {
 
 	expect(actual).toEqual(expected)
     })
+
+    it('given list of integer, and Comma-Separated Pritner, then return result as comma-separated string', function() {
+	const input = [1,3,5,7,15]
+	const expected = '1, Fizz, Buzz, 7, FizzBuzz'
+	const buzzFilter = (input) => {return 0 === input % 5 ? 'Buzz': ''}
+	filtersProvider.add(buzzFilter)
+	printersProvider.configure(commaSeparatedPrinter)
+
+	const actual = fizzBuzz.stringFor(input)
+
+	expect(actual).toEqual(expected)
+    })
+
 })

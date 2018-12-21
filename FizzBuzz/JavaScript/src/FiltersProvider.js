@@ -12,7 +12,7 @@ class FiltersProvider {
     }
     
     all() {
-	return filters
+	return new Set(Array.from(filters))
     }
 }
 

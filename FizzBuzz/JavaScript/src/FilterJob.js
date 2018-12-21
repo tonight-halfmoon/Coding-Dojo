@@ -1,7 +1,9 @@
 const filtersProvider = require('./FiltersProvider').filtersProvider
 
 filterFun = (input) => {
-    throwIntegerLessThanOneException(input)
+    if (input instanceof Array) {
+	return input.map(it => tt(it))
+    }
     return tt(input)
 }
 
@@ -14,6 +16,7 @@ tt = (input) => {
 }
 
 applyFilters = (input, filters, result) => {
+    throwIntegerLessThanOneException(input)
     if(0 === filters.size)
     {
 	return result

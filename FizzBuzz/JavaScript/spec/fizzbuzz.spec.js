@@ -49,4 +49,14 @@ describe('stringFor', function() {
 	expect(actual).toEqual(expected)
     })
 
+    it('´stringFor´ given list of integer, then return result as white-space-separated string', function() {
+	const input = [1,3,5,7,15]
+	const expected = '1 Fizz Buzz 7 FizzBuzz'
+	const buzzFilter = (input) => {return 0 === input % 5 ? 'Buzz': ''}
+	filtersProvider.add(buzzFilter)
+
+	const actual = fizzBuzz.stringFor(input)
+
+	expect(actual).toEqual(expected)
+    })
 })

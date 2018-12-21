@@ -1,4 +1,5 @@
-let filterJob = require('./FilterJob').filterJob
+const filterJob = require('./FilterJob').filterJob
+const printerJob = require('./PrinterJob').printerJob
 
 class FizzBuzz {
 
@@ -12,12 +13,7 @@ class FizzBuzz {
     }
 
     print(input, result) {
-	const resultAsString = Array.from(result).join(' ').trim(' ')
-	if('' === resultAsString)
-	{
-	    return input.toString()
-	}
-	return resultAsString
+	return printerJob.process(input, result)
     }
 }
 

@@ -5,11 +5,7 @@ class FizzBuzz {
     stringFor(input) {
 	this.throwIntegerLessThanOneException(input);
 	const result = fizz(input);
-	if(result)
-	{
-	    return result;
-	}
-	return input.toString();
+	return print(input, result);
     }
 
     addFilter(filter) {
@@ -27,6 +23,14 @@ class FizzBuzz {
 	    throw new IntegerLessThanOneException(input);
 	}
     }
+};
+
+const print = (input, result) => {
+    if('' === result)
+    {
+	return input.toString();
+    }
+    return result;
 };
 
 const fizz = (input) => {

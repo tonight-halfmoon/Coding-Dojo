@@ -29,21 +29,21 @@ describe('stringFor', function() {
 	const input = () => "Filter";
 	const expected = 1;
 
-	const actual = fizzBuzz.addFilter(input);
+	const actual = filtersProvider.add(input);
 
 	expect(actual).toEqual(expected);
     });
 
     it('´removeAllFilters´ always remove all available filters', function() {
-	fizzBuzz.removeAllFilters();
+	filtersProvider.removeAll();
 	const inputFilter1 = () => "filter1";
 	const inputFilter2 = () => "filter2";
-	fizzBuzz.addFilter(inputFilter1);
-	const currentSize = fizzBuzz.addFilter(inputFilter2);
+	filtersProvider.add(inputFilter1);
+	const currentSize = filtersProvider.add(inputFilter2);
 	expect(currentSize).toEqual(2);
 	const expected = 0;
 
-	const actual = fizzBuzz.removeAllFilters();
+	const actual = filtersProvider.removeAll();
 
 	expect(actual).toEqual(expected);
     });
@@ -51,3 +51,5 @@ describe('stringFor', function() {
 
 const FizzBuzz = require('../index.js').fizzbuzz;
 const fizzBuzz = new FizzBuzz();
+const FiltersProvider = require('../index.js').filtersProvider;
+const filtersProvider = new FiltersProvider();

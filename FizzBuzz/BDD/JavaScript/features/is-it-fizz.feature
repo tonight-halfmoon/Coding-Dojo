@@ -1,12 +1,12 @@
-Feature: Is it Fizz ?
-	Everybody wants to quickly say Fizz for integer divisible by 3
+Feature: Fizz or Buzz ?
+	Everybody wants to quickly say Fizz or Buzz for input integer
 
-	Scenario: Return Fizz
-		Given Input is 3
+	Scenario Outline: Return Fizz or Buzz
+		Given Input is <input>
 		When I ask what's that
-		Then I should be told "Fizz"
+		Then I should be told "<answer>"
 
-	Scenario: Return Buzz
-		Given Input is 5
-		When I ask what's that
-		Then I should be told "Buzz"
+	Examples:
+		| input	| answer|
+		| 3	| Fizz |
+		| 5	| Buzz |

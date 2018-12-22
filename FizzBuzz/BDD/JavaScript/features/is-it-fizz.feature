@@ -4,4 +4,9 @@ Feature: Is it Fizz ?
 	Scenario: Return Fizz
 		Given Input is 3
 		When I ask what's that
-		Then I should be told "Fizz" 
+		Then I should be told "Fizz"
+
+	Scenario: Return Buzz
+		Given Input is 5
+		When I ask what's that
+		Then I should be told "Buzz"

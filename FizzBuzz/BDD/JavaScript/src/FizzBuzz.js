@@ -1,5 +1,8 @@
 class FizzBuzz {
-    stringFor() {
+    stringFor(input) {
+	if (0 === input % 5) {
+	    return "Buzz"
+	}
 	return "Fizz"
     }
 }

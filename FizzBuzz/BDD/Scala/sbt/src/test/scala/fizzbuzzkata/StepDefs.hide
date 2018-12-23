@@ -1,0 +1,18 @@
+package fizzbuzzkata
+
+import cucumber.api.scala.{ScalaDsl, EN}
+
+object StepDefs extends ScalaDsl with EN {
+
+  Given("""Input is {int}""") { (input: Int) =>
+
+  }
+
+  When ("""I ask what's that""") { () =>
+
+  }
+
+  Then("""I should be told {String}""") { (expected: String) =>
+
+  }
+}

@@ -1,0 +1,9 @@
+{ application, fizz_buzz,
+[
+ {description, "Solving FizzBuzz Kata pursuing BDD with Cucumberl"},
+ {vsn, git},
+ {applications, [
+		 kernel,
+		 stdlib
+		]}
+]}.

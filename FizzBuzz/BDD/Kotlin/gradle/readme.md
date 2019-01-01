@@ -1,1 +1,10 @@
+
+```
+$ gradle bddTest
+```
+
+
+```
 $ gradle compileKotlin
+```
+

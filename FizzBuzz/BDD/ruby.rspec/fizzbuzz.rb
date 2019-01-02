@@ -6,12 +6,21 @@ class FizzBuzz
   end
 
   def stringFor
+    @result = filter()
+    if @result.nil?
+      @input.to_s
+    else
+      @result
+    end
+  end
+
+  def filter()
     if @input === 3
       'Fizz'
     elsif @input === 5
       'Buzz'
     else
-      @input.to_s
+      nil
     end
   end
 end

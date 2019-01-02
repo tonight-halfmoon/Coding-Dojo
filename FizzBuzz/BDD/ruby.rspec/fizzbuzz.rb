@@ -16,7 +16,7 @@ class FizzBuzz
 
   def filter(input)
     @result = fizzFilter(input)
-    @result += buzzFilter(input)
+    @result.concat(buzzFilter(input))
     @result
   end
 

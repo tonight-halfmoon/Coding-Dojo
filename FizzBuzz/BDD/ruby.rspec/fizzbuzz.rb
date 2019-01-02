@@ -6,12 +6,12 @@ class FizzBuzz
   end
 
   def stringFor
-   if @input === 3
+    if @input === 3
       'Fizz'
     elsif @input === 5
       'Buzz'
     else
-     @input.to_s
-   end
+      @input.to_s
+    end
   end
 end

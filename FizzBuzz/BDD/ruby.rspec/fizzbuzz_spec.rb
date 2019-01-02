@@ -3,8 +3,8 @@ RSpec.describe FizzBuzz do
   describe "stringFor" do
     it "returns same input as String for an input" do
       fizzbuzz = FizzBuzz.new
-      1.times { fizzbuzz.say(10) }
-      expect(fizzbuzz.stringFor).to eq('10')
+      1.times { fizzbuzz.say(1) }
+      expect(fizzbuzz.stringFor).to eq('1')
     end
   end
 end
@@ -21,7 +21,7 @@ end
 
 RSpec.describe FizzBuzz do
   describe "stringFor" do
-    it "returns Buzz when input is 5" do
+    it "returns 'Buzz' when input is divisible 5" do
       fizzbuzz = FizzBuzz.new
       1.times { fizzbuzz.say(5) }
       expect(fizzbuzz.stringFor).to eq('Buzz')

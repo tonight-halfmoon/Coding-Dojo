@@ -7,11 +7,10 @@ class FizzBuzz
 
   def stringFor
     @result = filter(@input)
-    if @result.empty?
+    @result.empty? ?
       @input.to_s
-    else
+    :
       @result
-    end
   end
 
   def filter(input)
@@ -21,18 +20,16 @@ class FizzBuzz
   end
 
   def fizzFilter(integer)
-    if integer % 3 === 0
+    integer % 3 === 0 ?
       'Fizz'
-    else
+    :
       ''
-    end
   end
 
   def buzzFilter(integer)
-    if integer % 5 === 0
+    integer % 5 === 0 ?
       'Buzz'
-    else
+    :
       ''
-    end
   end
 end

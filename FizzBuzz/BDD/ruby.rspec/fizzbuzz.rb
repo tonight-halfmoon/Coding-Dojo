@@ -6,7 +6,7 @@ class FizzBuzz
   end
 
   def stringFor
-    @result = filter()
+    @result = filter(@input)
     if @result.empty?
       @input.to_s
     else
@@ -14,9 +14,9 @@ class FizzBuzz
     end
   end
 
-  def filter()
-    @result = fizzFilter(@input)
-    @result += buzzFilter(@input)
+  def filter(input)
+    @result = fizzFilter(input)
+    @result += buzzFilter(input)
     @result
   end
 

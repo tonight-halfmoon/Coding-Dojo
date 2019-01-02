@@ -7,7 +7,7 @@ class FizzBuzz
 
   def stringFor
     @result = filter()
-    if @result.nil?
+    if @result.empty?
       @input.to_s
     else
       @result
@@ -15,12 +15,20 @@ class FizzBuzz
   end
 
   def filter()
+    @result = fizzFilter(@input)
+    if @input % 5 === 0
+      @result += 'Buzz'
+    else
+      ''
+    end
+    @result
+  end
+
+  def fizzFilter(integer)
     if @input % 3 === 0
       'Fizz'
-    elsif @input % 5 === 0
-      'Buzz'
     else
-      nil
+      ''
     end
   end
 end

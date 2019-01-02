@@ -28,3 +28,13 @@ RSpec.describe FizzBuzz do
     end
   end
 end
+
+RSpec.describe FizzBuzz do
+  describe "stringFor" do
+    it "returns 'FizzBuzz' when input is divisible by 3 and 5" do
+      fizzbuzz = FizzBuzz.new
+      1.times { fizzbuzz.say(15) }
+      expect(fizzbuzz.stringFor).to eq('FizzBuzz')
+    end
+  end
+end

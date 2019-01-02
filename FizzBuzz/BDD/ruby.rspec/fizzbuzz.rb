@@ -16,17 +16,21 @@ class FizzBuzz
 
   def filter()
     @result = fizzFilter(@input)
-    if @input % 5 === 0
-      @result += 'Buzz'
-    else
-      ''
-    end
+    @result += buzzFilter(@input)
     @result
   end
 
   def fizzFilter(integer)
-    if @input % 3 === 0
+    if integer % 3 === 0
       'Fizz'
+    else
+      ''
+    end
+  end
+
+  def buzzFilter(integer)
+    if integer % 5 === 0
+      'Buzz'
     else
       ''
     end

@@ -15,7 +15,7 @@ class FizzBuzz
   end
 
   def filter()
-    if @input === 3
+    if @input % 3 === 0
       'Fizz'
     elsif @input === 5
       'Buzz'

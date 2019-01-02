@@ -11,7 +11,7 @@ end
 
 RSpec.describe FizzBuzz do
   describe "stringFor" do
-    it "returns Fizz when input is 3" do
+    it "returns 'Fizz' when input is divisible 3" do
       fizzbuzz = FizzBuzz.new
       1.times { fizzbuzz.say(3) }
       expect(fizzbuzz.stringFor).to eq('Fizz')

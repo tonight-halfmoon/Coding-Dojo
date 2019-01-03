@@ -35,7 +35,7 @@
 
 -include_lib("eunit/include/eunit.hrl").
 
-inWords_givenLessThan1_thenThrowNumberLessThanOneException_test() ->
+inWords_givenInputLessThan1_thenThrowNumberLessThanOneException_test() ->
     Input = 0,
     ExpectedError = error,
     ExpectedErrorReason = function_clause,

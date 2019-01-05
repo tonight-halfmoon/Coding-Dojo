@@ -1,7 +1,7 @@
 {
   "scripts": {
     "cucumber": "cucumber-js ./features -r ./src",
-    "bdd": "cucumber-js features/ -r steps/",
+    "evaluate-examples": "cucumber-js features/ -r steps/",
     "test": "jasmine"
   },
   "dependencies": {},

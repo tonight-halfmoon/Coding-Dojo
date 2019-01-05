@@ -15,10 +15,10 @@
 ```
 $ ./node_modules/.bin/cucumber-js features/ -r steps/
 ```
-For the last command in `package.json` script entry `bdd`. Therefore, the following substitutes:
+For the last command in `package.json` script entry `evaluate-examples`. Therefore, the following substitutes:
 
 ```
-$ npm run bdd
+$ npm run evaluate-examples
 ```
 
 - Derive new specification

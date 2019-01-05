@@ -10,3 +10,4 @@ Feature: Fizz or Buzz ?
 		| input	| answer|
 		| 3	| Fizz |
 		| 5	| Buzz |
+		| 1	| 1      |

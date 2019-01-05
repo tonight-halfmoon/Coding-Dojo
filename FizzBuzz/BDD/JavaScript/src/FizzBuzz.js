@@ -3,7 +3,10 @@ class FizzBuzz {
 	if (0 === input % 5) {
 	    return "Buzz"
 	}
-	return "Fizz"
+	if (0 === input % 3) {
+	    return "Fizz"
+	}
+	return input.toString()
     }
 }
 

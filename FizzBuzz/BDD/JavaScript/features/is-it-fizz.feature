@@ -11,3 +11,4 @@ Feature: Fizz or Buzz ?
 		| 3	| Fizz   |
 		| 5	| Buzz   |
 		| 1	| 1      |
+		| 15	| FizzBuzz |

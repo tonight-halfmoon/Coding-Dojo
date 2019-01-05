@@ -1,23 +1,13 @@
-const fizzFilter = require('./fizzFilter').fizzFilter
-const buzzFilter = require('./buzzFilter').buzzFilter
+const filterJob = require('./FilterJob').filterJob
 
 class FizzBuzz {
     stringFor(input) {
-	const result = this.filter(input)
+	const result = filterJob.filter(input)
 	if (result === '')
 	{
 	    return input.toString()
 	}
 	return result
-    }
-
-    filter(input) {
-	const filters = [fizzFilter, buzzFilter]
-	return this.applyFilters(filters, input)
-    }
-
-    applyFilters(filters, input) {
-	return filters.map(filter => filter(input)).join('')
     }
 }
 

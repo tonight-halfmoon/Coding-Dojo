@@ -1,8 +1,8 @@
 filter = (input) => {
-    if (0 === input % 3) {
-	return "Fizz"
-    }
-    return ''
+    return 0 === input % 3 ?
+	"Fizz"
+	:
+	''
 }
 
 module.exports = { fizzFilter: filter }

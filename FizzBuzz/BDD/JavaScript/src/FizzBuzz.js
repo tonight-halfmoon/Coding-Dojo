@@ -1,12 +1,21 @@
 class FizzBuzz {
     stringFor(input) {
+	var result = this.fizzFilter(input)
 	if (0 === input % 5) {
-	    return "Buzz"
+	    result += "Buzz"
 	}
+	if (result === '')
+	{
+	    return input.toString()
+	}
+	return result
+    }
+
+    fizzFilter(input) {
 	if (0 === input % 3) {
 	    return "Fizz"
 	}
-	return input.toString()
+	return ''
     }
 }
 

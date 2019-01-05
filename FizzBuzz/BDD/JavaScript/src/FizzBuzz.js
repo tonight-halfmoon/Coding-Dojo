@@ -1,11 +1,10 @@
 const fizzFilter = require('./fizzFilter').fizzFilter
+const buzzFilter = require('./buzzFilter').buzzFilter
 
 class FizzBuzz {
     stringFor(input) {
 	var result = fizzFilter(input)
-	if (0 === input % 5) {
-	    result += "Buzz"
-	}
+	result += buzzFilter(input)
 	if (result === '')
 	{
 	    return input.toString()

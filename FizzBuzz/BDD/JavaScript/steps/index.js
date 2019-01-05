@@ -1,1 +1,1 @@
-module.exports = { fizzBuzz: require("../src/index").fizzBuzz };
+module.exports = { fizzBuzz: require("../src/index").fizzBuzz }

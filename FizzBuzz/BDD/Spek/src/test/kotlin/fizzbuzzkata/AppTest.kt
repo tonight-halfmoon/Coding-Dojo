@@ -8,6 +8,7 @@ import kotlin.test.assertNotNull
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.specification.describe
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.assertThrows
 
 object AppTest: Spek ({
 	group( "Top-Level Specs" ) {
@@ -19,6 +20,13 @@ object AppTest: Spek ({
 				val actual = FizzBuzz.stringFor(input)
 
 				assertEquals(expected, actual)
+			}
+
+			context("when input is integer less than 1") {
+				val input = 0
+				it("throw IntegerLessThanOneException") {
+					assertThrows<IntegerLessThanOneException> { FizzBuzz.stringFor(input) }
+				}
 			}
 		}
 	}

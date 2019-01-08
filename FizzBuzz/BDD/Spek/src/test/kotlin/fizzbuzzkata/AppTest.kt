@@ -6,11 +6,20 @@ package fizzbuzzkata
 import kotlin.test.Test
 import kotlin.test.assertNotNull
 import org.spekframework.spek2.Spek
+import org.spekframework.spek2.style.specification.describe
+import org.junit.jupiter.api.Assertions.assertEquals
 
 object AppTest: Spek ({
-	group( "normal" ) {
-		test ("Given any input, when we ask whether it is Fizz or Buzz, then return Input") {
-			assertNotNull("badinput")
+	group( "Top-Level Specs" ) {
+		describe ("StringFor Input") {
+			it("Given any input, when we ask whether it is Fizz or Buzz, then return Input") {
+				val input = 1
+				val expected = "1"
+
+				val actual = FizzBuzz.stringFor(input)
+
+				assertEquals(expected, actual)
+			}
 		}
 	}
 })

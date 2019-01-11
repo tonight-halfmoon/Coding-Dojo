@@ -13,18 +13,20 @@ import org.junit.jupiter.api.assertThrows
 object AppTest: Spek ({
 	group( "Top-Level Specs" ) {
 		describe ("StringFor Input") {
-			it("Given any input, when we ask whether it is Fizz or Buzz, then return Input as String") {
-				val input = 1
-				val expected = "1"
+			context("Given any input") {
+				val input =1
+				it("When I ask whether it is Fizz or Buzz, Then return Input as String") {
+					val expected = "1"
 
-				val actual = FizzBuzz.stringFor(input)
+					val actual = FizzBuzz.stringFor(input)
 
-				assertEquals(expected, actual)
+					assertEquals(expected, actual)
+				}
 			}
 
-			context("when input is integer less than 1") {
+			context("Given input is integer less than 1") {
 				val input = 0
-				it("throw IntegerLessThanOneException") {
+				it("Throw IntegerLessThanOneException") {
 					assertThrows<IntegerLessThanOneException> { FizzBuzz.stringFor(input) }
 				}
 			}

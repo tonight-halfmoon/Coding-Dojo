@@ -13,7 +13,7 @@ import org.junit.jupiter.api.assertThrows
 object AppTest: Spek ({
 	group( "Top-Level Specs" ) {
 		describe ("StringFor Input") {
-			it("Given any input, when we ask whether it is Fizz or Buzz, then return Input") {
+			it("Given any input, when we ask whether it is Fizz or Buzz, then return Input as String") {
 				val input = 1
 				val expected = "1"
 

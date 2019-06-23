@@ -8,6 +8,7 @@
 - jasmine
 - npm install -g chai@latest
 - npm install -D chai@latest
+- npm install --save-dev chai@latest
 - npm install --save-dev cucumber
 
 ## 

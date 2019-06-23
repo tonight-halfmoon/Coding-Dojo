@@ -2,7 +2,7 @@
   "scripts": {
     "cucumber": "cucumber-js ./features -r ./src",
     "evaluate-examples": "cucumber-js features/ -r steps/",
-    "test": "jasmine"
+    "test": "./node_modules/.bin/cucumber-js features/ -r steps/"
   },
   "dependencies": {},
   "devDependencies": {
